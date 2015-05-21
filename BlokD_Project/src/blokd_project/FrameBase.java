@@ -27,8 +27,9 @@ public class FrameBase extends JFrame
     
     private static void createComponents()
     {
+        
         JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
+       // panel.setLayout(new BorderLayout());
         
         JPanel northPanel = new JPanel();
         northPanel.setBorder(new EtchedBorder());
@@ -52,7 +53,8 @@ public class FrameBase extends JFrame
         southPanel.setBorder(new EtchedBorder());
         JButton startButton = new JButton();
         southPanel.add(startButton);
-        panel.add(southPanel, BorderLayout.SOUTH);
+        //frame vullen met de panels.
+        component.add(southPanel, BorderLayout.SOUTH);
 
         ActionListener listener = new ClickListener();
         //button.addActionListener(listener);
