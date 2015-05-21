@@ -21,43 +21,9 @@ public class FrameBase extends JFrame
         createComponents();
     }
 
-    public static void main(String[] args) 
+   private static void createComponents()
     {
-    }
-    
-    private static void createComponents()
-    {
-        
-        JPanel panel = new JPanel();
-       // panel.setLayout(new BorderLayout());
-        
-        JPanel northPanel = new JPanel();
-        northPanel.setBorder(new EtchedBorder());
-//        northPanel.add(label);
-//        northPanel.add(textfield);
-//        northPanel.add(button);
-        panel.add(northPanel, BorderLayout.NORTH);
-        
-        JPanel westPanel = new JPanel();
-        westPanel.setBorder(new EtchedBorder());
-        panel.add(westPanel, BorderLayout.WEST);
-        
-        JPanel centerPanel = new JPanel();
-        centerPanel.setBorder(new EtchedBorder());
-//        JComponent component = new ChartComponent();
-//        centerPanel.add(component);
-        panel.add(centerPanel, BorderLayout.CENTER);
-        //component.paintComponents(null);
-        
-        JPanel southPanel = new JPanel();
-        southPanel.setBorder(new EtchedBorder());
-        JButton startButton = new JButton();
-        southPanel.add(startButton);
-        //frame vullen met de panels.
-        component.add(southPanel, BorderLayout.SOUTH);
-
-        ActionListener listener = new ClickListener();
-        //button.addActionListener(listener);
+               
     }
 
 }
