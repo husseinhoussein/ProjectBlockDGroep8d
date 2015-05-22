@@ -6,11 +6,19 @@ package blokd_project;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JComponent;
 
 public class ClickListener implements ActionListener
-{
-    public void actionPerformed (ActionEvent event)
+{ private JComponent comp;
+    
+    
+    public ClickListener(JComponent comp) {
+        this.comp = comp;
+    }
+
+   @Override
+    public void actionPerformed(ActionEvent event)
     {
-        System.out.println("I was clicked.");
+        this.comp.repaint();
     }
 }

@@ -1,13 +1,15 @@
 
 package blokd_project;
 
+import javax.swing.JComponent;
+
 public class SpelObject 
 {
     private String plaatje = "P"; //dit moet nog een ander type worden
-    
+    private JComponent muur;
     private void tekenObject() 
     {
-        //code om een object te tekenen
+        this.muur.repaint();
     }
     
     private void pakObject()
