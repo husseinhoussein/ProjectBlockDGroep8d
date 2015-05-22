@@ -7,6 +7,9 @@ public class SpelObject
 {
     private String plaatje = "P"; //dit moet nog een ander type worden
     private JComponent muur;
+    String speler = "S";
+    String vriend = "V";
+    
     private void tekenObject() 
     {
         this.muur.repaint();

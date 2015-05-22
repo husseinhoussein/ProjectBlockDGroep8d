@@ -15,7 +15,7 @@ public class FrameBaseViewer
 {
     public static void main(String[] args) 
     {
-        int data = 0;
+        String[][] doolhof = null;
         JFrame doolhofFrame = new JFrame();
         
         JPanel panelNorth = new JPanel();
@@ -36,8 +36,8 @@ public class FrameBaseViewer
         doolhofFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         doolhofFrame.setSize(500,400);
         
-        ChartComponent chart = new ChartComponent(data);
-        ActionListener listener = new ClickListener(chart);
+        Level lvl = new Level(doolhof);
+        ActionListener listener = new ClickListener(lvl);
         startB.addActionListener(listener);
         
         doolhofFrame.setVisible(true);

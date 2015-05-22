@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ Dit is een voorbeeld, van het internet
  */
 package blokd_project;
 
@@ -77,7 +76,7 @@ public class Maze {
     private void generate() {
         generate(1, 1);
 
-/*
+
         // delete some random walls
         for (int i = 0; i < N; i++) {
             int x = (int) (1 + Math.random() * (N-1));
@@ -91,7 +90,7 @@ public class Maze {
             int y = (int) (N / 2 + Math.random() * (N / 2));
             east[x][y] = west[x+1][y] = true;
         }
-*/
+
      
     }
 
@@ -153,8 +152,8 @@ public class Maze {
 
     // a test client
     public static void main(String[] args) {
-        //int N = Integer.parseInt(args[0]);
-        Maze maze = new Maze(0);
+        int N = Integer.parseInt(args[0]);
+        Maze maze = new Maze(N);
         StdDraw.show(0);
         maze.draw();
         maze.solve();

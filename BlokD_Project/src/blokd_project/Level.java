@@ -12,7 +12,7 @@ public class Level {
 //    private final int x;
 //    private final int y;
 //    private final int[][] maze;
-    //hier komt de 2D-array met de doolhofstructuur 
+
     private String[][] doolhof;
 
 //    public Level(int x, int y) {
@@ -34,19 +34,65 @@ public class Level {
         this.doolhof = doolhof;
     }
 
-    private String[][] generateLevel() {
+    public Level(String[][] doolhof) {
+        this.doolhof = doolhof;
+    }
+
+    
+// matrix van 'doolhof', met start en eind positie
+    private void generateLevel() {
         doolhof = new String[width][height];
-   
+
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                
+                doolhof[i][j] = "0";
+                if (i == 0) {
+                    doolhof[i][j] = "1";
+                }
+                if (j == 0) {
+                    doolhof[i][j] = "1";
+                }
+                if (i == width - 1) {
+                    doolhof[i][j] = "1";
+                }
+                if (j == height - 1) {
+                    doolhof[i][j] = "1";
+                }
+                doolhof[1][1] = "S";
+                doolhof[(width - 2)][(height - 2)] = "V";
                 System.out.print(doolhof[i][j] + "\t");
 
             }
             System.out.println();
         }
-        return doolhof;
     }
+// brainstorm, pay no attention to this
+//    public void paintComponent(Graphics g) {
+//        doolhof = new String[width][height];
+//
+//        for (int i = 0; i < width; i++) {
+//            for (int j = 0; j < height; j++) {
+//                doolhof[i][j] = "0";
+//                if (i == 0) {
+//                    doolhof[i][j] = "1";
+//                }
+//                if (j == 0) {
+//                    doolhof[i][j] = "1";
+//                }
+//                if (i == width - 1) {
+//                    doolhof[i][j] = "1";
+//                }
+//                if (j == height - 1) {
+//                    doolhof[i][j] = "1";
+//                }
+//                doolhof[1][1] = "S";
+//                doolhof[(width - 2)][(height - 2)] = "V";
+//                g.drawString(doolhof[i][j] + "\t", 100,100);
+//
+//            }
+//        }
+//
+//    }
 }
 //    public void display(Graphics g) {
 //        

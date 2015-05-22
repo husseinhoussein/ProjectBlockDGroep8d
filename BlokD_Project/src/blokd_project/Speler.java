@@ -18,4 +18,10 @@ public class Speler extends SpelObject
         //verlaag ammunitie
     }
     
+    @Override
+    public String toString()
+    {
+        return "S";
+    }
+    
 }
