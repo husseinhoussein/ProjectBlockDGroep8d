@@ -1,4 +1,3 @@
-
 package blokd_project;
 
 import java.awt.BorderLayout;
@@ -11,39 +10,50 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 
-public class FrameBaseViewer 
-{
-    public static void main(String[] args) 
-    {
-        String[][] doolhof = null;
+public class FrameBaseViewer {
+
+    public static void main(String[] args) {
+
+        int[][] maze = null;
+
         JFrame doolhofFrame = new JFrame();
-        
+
         JPanel panelNorth = new JPanel();
         JPanel panelSouth = new JPanel();
-        
-        JLabel steps = new JLabel("Aantal stappen:");        
-        
+
+        JLabel steps = new JLabel("Aantal stappen:");
+
         JButton startB = new JButton("start");
         JButton resetB = new JButton("reset");
-        
+
         panelNorth.add(steps);
         panelSouth.add(startB);
         panelSouth.add(resetB);
-        
+
         doolhofFrame.add(panelNorth, BorderLayout.NORTH);
         doolhofFrame.add(panelSouth, BorderLayout.SOUTH);
-        doolhofFrame.setTitle ("Doolhof Game");
+        doolhofFrame.setTitle("Doolhof Game");
         doolhofFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        doolhofFrame.setSize(500,400);
-        
-        Level lvl = new Level(doolhof);
+        doolhofFrame.setSize(500, 400);
+
+//        int a = args.length >= 1 ? (Integer.parseInt(args[0])) : 8;
+//        int b = args.length == 2 ? (Integer.parseInt(args[1])) : 8;
+
+        int a = 0; 
+        int b = 0;
+        Level lvl = new Level(a, b, maze);
+
+        int x = lvl.getX();
+        int y = lvl.getY();
+        a = x;
+        b = y;
+        lvl =  new Level(a, b, maze);
+        // in mijn hoofd is dit logisch, wellicht overbodig. Maar dit hoort te werken
+        // maar het werkt niet, en ik ben mentaal verslagen..... \(Ò..Ó)/
         ActionListener listener = new ClickListener(lvl);
         startB.addActionListener(listener);
-        
         doolhofFrame.setVisible(true);
-               
     }
-
 }
 //Kannibalisatie:
 //JPanel panel = new JPanel();

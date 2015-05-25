@@ -12,22 +12,26 @@ public class ClickListener implements ActionListener
 { //non functioneel, moet nog correct geimplenteerd worden.
     private JComponent comp;
     private Level lvl;
+    
 
-    public ClickListener(JComponent comp, Level lvl) {
+    public ClickListener(JComponent comp) {
         this.comp = comp;
-        this.lvl = lvl;
     }
 
     ClickListener(Level lvl) {
         this.lvl = lvl;
     }
-
    
+
+
 
    @Override
     public void actionPerformed(ActionEvent event)
     {
-        this.comp.repaint();
+//      this.comp.repaint();
+        
+        
+        this.lvl.display();
         
     }
 }

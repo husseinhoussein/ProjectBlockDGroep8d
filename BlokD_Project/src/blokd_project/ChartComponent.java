@@ -7,22 +7,22 @@ package blokd_project;
 import java.awt.Graphics;
 import javax.swing.JComponent;
 
+public class ChartComponent extends JComponent {
 
-public class ChartComponent extends JComponent
-{
-    private int data = 10;
-    
-    public ChartComponent(int data) {
-        this.data = data;
+    private int[][] maze;
+    private int x;
+    private int y;
+
+    public ChartComponent(int data, int[][] maze, int x, int y) {
+        this.maze = maze;
+        this.x = x;
+        this.y = y;
     }
-    
-    
+
     @Override
-    public void paintComponent(Graphics g)
-    {
-            g.fillRect(data, data, 20, 20);
-    }
-    
-   
-}
+    public void paintComponent(Graphics g) {
 
+        g.drawString("test", 10, 10);
+    }
+//writers block :| //fantasie block.. hoe kwamen die plusjes in de output?, lets find out i guess
+}
