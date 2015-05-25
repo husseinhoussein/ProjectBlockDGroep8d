@@ -5,21 +5,22 @@
 package blokd_project;
 
 import java.awt.Graphics;
-import java.util.Random;
 import javax.swing.JComponent;
 
 
 public class ChartComponent extends JComponent
 {
-    public ChartComponent()
-    {
-        
+    private int data = 10;
+    
+    public ChartComponent(int data) {
+        this.data = data;
     }
+    
     
     @Override
     public void paintComponent(Graphics g)
     {
-        g.drawString("DoolhofGame, WELKOM", 250, 150);
+            g.fillRect(data, data, 20, 20);
     }
     
    

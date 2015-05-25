@@ -5,6 +5,14 @@ public class Veld
 {
     private int postitieX;
     private int positieY;
+    private SpelObject plaatje;
+
+    private Veld(int postitieX, int positieY, SpelObject plaatje) {
+        this.postitieX = postitieX;
+        this.positieY = positieY;
+        this.plaatje = plaatje;
+    }
+
     
     private void verwijderObject(int posX, int posY)
     {
@@ -19,7 +27,6 @@ public class Veld
     private Veld getNeighbour(int posX, int posY)
     {
         //geeft buurvelde terug van meegegeven veld
-        Veld veld = new Veld();
-        return veld;
+       return null;
     }
 }

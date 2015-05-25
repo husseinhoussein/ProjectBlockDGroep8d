@@ -2,6 +2,7 @@
 package blokd_project;
 
 import java.awt.BorderLayout;
+import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -14,6 +15,7 @@ public class FrameBaseViewer
 {
     public static void main(String[] args) 
     {
+        String[][] doolhof = null;
         JFrame doolhofFrame = new JFrame();
         
         JPanel panelNorth = new JPanel();
@@ -33,6 +35,10 @@ public class FrameBaseViewer
         doolhofFrame.setTitle ("Doolhof Game");
         doolhofFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         doolhofFrame.setSize(500,400);
+        
+        Level lvl = new Level(doolhof);
+        ActionListener listener = new ClickListener(lvl);
+        startB.addActionListener(listener);
         
         doolhofFrame.setVisible(true);
                
