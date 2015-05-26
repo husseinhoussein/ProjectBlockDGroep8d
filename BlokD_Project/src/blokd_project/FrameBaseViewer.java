@@ -38,18 +38,21 @@ public class FrameBaseViewer {
 
 //        int a = args.length >= 1 ? (Integer.parseInt(args[0])) : 8;
 //        int b = args.length == 2 ? (Integer.parseInt(args[1])) : 8;
+//
+//        int a = 0; 
+//        int b = 0; 
+//        Level lvl = new Level(a, b, maze);   <------ het lag hier aan, die maze parameter verklote alles.
+//        alleen lukt het nu niet met de getX, hij maakt de hele tijd dezelfde maze aan, 
+//        ik dacht misschien aan een loop die het groter en "moeilijker"maakt.
+//        P.S. de a, b en dan a = x, b = y omzeiling eindigd weer in alleen de plusjes... so i am at a loss.
+        Level lvl;
+        int x = 10;// lvl.getX();
+        int y = 10;// lvl.getY();
+//        a = x;
+//        b = y;
+        lvl =  new Level(x, y);
+        lvl.generateMaze(x, y);
 
-        int a = 0; 
-        int b = 0;
-        Level lvl = new Level(a, b, maze);
-
-        int x = lvl.getX();
-        int y = lvl.getY();
-        a = x;
-        b = y;
-        lvl =  new Level(a, b, maze);
-        // in mijn hoofd is dit logisch, wellicht overbodig. Maar dit hoort te werken
-        // maar het werkt niet, en ik ben mentaal verslagen..... \(Ò..Ó)/
         ActionListener listener = new ClickListener(lvl);
         startB.addActionListener(listener);
         doolhofFrame.setVisible(true);
