@@ -9,8 +9,8 @@ public class Level {
     private int width = 20;
     private int height = 15;
     private String veld = "X";
-    public  int x;
-    public int y;
+    private  int x;
+    private int y;
     private final int[][] maze;
 
     public int getWidth() {
@@ -74,31 +74,35 @@ public class Level {
         Level maze = new Level(x, y);
 
         maze.generateMaze(x, y);
-        maze.display();
+        maze.display(null);
     } 
 
-    public void display() { 
+    public void display(Graphics g) { 
         
         for (int i = 0; i < y; i++) {
             
             // draw the north edge
             for (int j = 0; j < x; j++) {
                 System.out.print((maze[j][i] & 1) == 0 ? "+---" : "+   ");
-                // g.drawString(maze[j][i] + 1 == 0 ? "+---" : "+    " , x, y);
+//                g.drawString(maze[j][i] + 1 == 0 ? "+---" : "+    " , x, y);
             }
             System.out.println("+");
             // draw the west edge
             for (int j = 0; j < x; j++) {
                 System.out.print((maze[j][i] & 8) == 0 ? "|   " : "    ");
+//                g.drawString((maze[j][i] & 8) == 0 ? "|   " : "    ", x, y);
             }
             System.out.println("|");
+//            g.drawString("|", x, y);
         }
         // draw the bottom line
         for (int j = 0; j < x; j++) {
             System.out.print("+---");
+//            g.drawString("+---", x, y);
         }
         //it skips up to here, WHY; we don't know
         System.out.println("+");
+//        g.drawString("+", x, y);
         
        //kan je de opbouw nalezen, en mijn misstap ontdekken ? proberen
     }

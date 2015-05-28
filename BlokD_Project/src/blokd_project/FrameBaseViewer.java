@@ -46,8 +46,8 @@ public class FrameBaseViewer {
 //        ik dacht misschien aan een loop die het groter en "moeilijker"maakt.
 //        P.S. de a, b en dan a = x, b = y omzeiling eindigd weer in alleen de plusjes... so i am at a loss.
         Level lvl;
-        int x = 10;// lvl.getX();
-        int y = 10;// lvl.getY();
+        int x = 12;//lvl.getX();
+        int y = 10;//lvl.getY();
 //        a = x;
 //        b = y;
         lvl =  new Level(x, y);

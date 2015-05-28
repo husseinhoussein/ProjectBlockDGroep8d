@@ -31,7 +31,7 @@ public class ClickListener implements ActionListener
 //      this.comp.repaint();
         
         
-        this.lvl.display();
+        this.lvl.display(null);
         
     }
 }
