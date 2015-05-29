@@ -15,7 +15,7 @@ public class Doolhof
         JFrame frame = new JFrame();
 	frame.setTitle("Maze Game");
 	frame.add(new Veld());
-	frame.setSize(1000,1000);
+	frame.setSize(640,670);
 	frame.setLocationRelativeTo(null);
 	frame.setVisible(true);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

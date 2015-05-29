@@ -44,17 +44,17 @@ public class Veld extends JPanel implements ActionListener
 			for(int x = 0; x < 25; x++)
 			{
 				if(m.getMap(x,y).equals("g"))
-				{g.drawImage(m.getGrass(), x*32, y*32, null);}
+				{g.drawImage(m.getGrass(), x*25, y*25, null);}
 
 				if(m.getMap(x,y).equals("w"))
-				{g.drawImage(m.getWall(), x*32, y*32, null);}
+				{g.drawImage(m.getWall(), x*25, y*25, null);}
 
 				//if(m.getMap(x,y).equals("g"))
 				//{g.drawImage(m.getGrass(), x*32, y*32, null);}
 
 			}
 		}
-	g.drawImage(p.getPlayer(), p.getTileX()*32, p.getTileY()*32, null);
+	g.drawImage(p.getPlayer(), p.getTileX()*25, p.getTileY()*25, null);
         }
     
     private void verwijderObject(int posX, int posY)
