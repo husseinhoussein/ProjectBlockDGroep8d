@@ -24,10 +24,7 @@ public class Map {
     public Map() {
         ImageIcon img = new ImageIcon(getPath("Images/grass.png"));
         grass = img.getImage();
-        img = new ImageIcon(getPath("Images/wall.png"));
-        wall = img.getImage();
-        img = new ImageIcon(getPath("Images/friend.png"));
-        friend = img.getImage();
+      
 
         openFile();
         readFile();
@@ -38,14 +35,7 @@ public class Map {
         return grass;
     }
 
-    public Image getWall() {
-        return wall;
-    }
     
-    public Image getFriend() {
-        return friend;
-    }
-
     public String getMap(int x, int y) {
         String index = Map[y].substring(x, x + 1);
         return index;

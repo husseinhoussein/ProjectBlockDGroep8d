@@ -13,10 +13,7 @@ public class Speler extends SpelObject {
     private int tileX, tileY;
     private Image playerImage;
 
-    private String getPath(String path) {
-        return new File("").getAbsolutePath() + "/src/blokd_project/" + path;
 
-    }
     
     public Speler() {
         ImageIcon img = new ImageIcon(getPath("Images/player.png"));

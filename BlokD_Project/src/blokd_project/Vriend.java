@@ -10,11 +10,7 @@ public class Vriend extends SpelObject
     private int tileX, tileY;
     private Image friendImage;
 
-    private String getPath(String path) {
-        return new File("").getAbsolutePath() + "/src/blokd_project/" + path;
-
-    }
-    
+     
     public Vriend() {
         ImageIcon img = new ImageIcon(getPath("Images/friend.png"));
         friendImage = img.getImage();

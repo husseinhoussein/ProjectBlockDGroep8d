@@ -1,6 +1,7 @@
 
 package blokd_project;
 
+import java.io.File;
 import javax.swing.JComponent;
 
 public class SpelObject 
@@ -9,6 +10,11 @@ public class SpelObject
     private JComponent muur;
     String speler = "S";
     String vriend = "V";
+    
+      public String getPath(String path) {
+        return new File("").getAbsolutePath() + "/src/blokd_project/" + path;
+
+    }
     
     private void tekenObject() 
     {

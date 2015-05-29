@@ -19,14 +19,27 @@ public class Veld extends JPanel implements ActionListener
     private boolean win = false;
     private Font font = new Font("Serif", Font.BOLD, 48);
     public Timer timer;
+    
     private Map m;
     private Speler p;
     private Vriend f;
+    private Muur w;
+    private Gras g;
+    private Helper h;
+    private Bazooka b;
+    private Valsspeler c;
     
     public Veld(/*int postitieX, int positieY, SpelObject plaatje*/) {
 		
                 m = new Map();
 		p = new Speler();
+                f = new Vriend();
+                w = new Muur();
+                g = new Gras();
+                h = new Helper();
+                b = new Bazooka();
+                c = new Valsspeler();
+                
 		addKeyListener(new KeyboardListener(p, m));
 		setFocusable(true);
 		timer = new Timer(25, this);
@@ -44,11 +57,10 @@ public class Veld extends JPanel implements ActionListener
 		repaint();	
 	}
 
-	public void paint(Graphics g)
+    @Override
+	public void paint(Graphics graphics)
 	{
-		super.paint(g);
-		//g.setColor(Color.red);
-		//g.fillRectangle(45, 60, 32, 32);
+		super.paint(graphics);
                 if (!win)
                 {
                     for(int y = 0; y < 25; y++)
@@ -56,13 +68,24 @@ public class Veld extends JPanel implements ActionListener
                             for(int x = 0; x < 25; x++)
                             {
                                     if(m.getMap(x,y).equals("g"))
-                                    {g.drawImage(m.getGrass(), x*25, y*25, null);}
+                                    {graphics.drawImage(g.getGrassImage(), x*25, y*25, null);}
 
                                     if(m.getMap(x,y).equals("w"))
-                                    {g.drawImage(m.getWall(), x*25, y*25, null);}
+                                    {graphics.drawImage(w.getWallImage(), x*25, y*25, null);}
 
                                     if(m.getMap(x,y).equals("f"))
-                                    {g.drawImage(m.getFriend(), x*25, y*25, null);}
+                                   
+                                    {graphics.drawImage(f.getFriend(), x*25, y*25, null);}
+                                    
+                                    if(m.getMap(x,y).equals("h"))
+                                    {graphics.drawImage(h.getHelperImage(), x*25, y*25, null);}
+                                    
+                                    if(m.getMap(x,y).equals("b"))
+                                    {graphics.drawImage(b.getBazookaImage(), x*25, y*25, null);}
+                                    
+                                    if(m.getMap(x,y).equals("c"))
+                                    {graphics.drawImage(c.getCheaterImage(), x*25, y*25, null);}
+
 
                             }
                     }
@@ -71,12 +94,12 @@ public class Veld extends JPanel implements ActionListener
                 if(win)
 		{
 		
-			g.setColor(Color.BLACK);
-			g.setFont(font);
+			graphics.setColor(Color.BLACK);
+			graphics.setFont(font);
 			
-			g.drawString (message, 150, 250);
+			graphics.drawString (message, 150, 250);
 		}
-	g.drawImage(p.getPlayer(), p.getTileX()*25, p.getTileY()*25, null);
+	graphics.drawImage(p.getPlayer(), p.getTileX()*25, p.getTileY()*25, null);
 
         }
     
