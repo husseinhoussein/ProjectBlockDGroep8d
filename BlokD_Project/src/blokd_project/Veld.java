@@ -20,7 +20,7 @@ public class Veld extends JPanel implements ActionListener
     
     public Veld(/*int postitieX, int positieY, SpelObject plaatje*/) {
 		
-    m = new Map();
+                m = new Map();
 		p = new Speler();
 		addKeyListener(new KeyboardListener(p));
 		setFocusable(true);
@@ -54,7 +54,7 @@ public class Veld extends JPanel implements ActionListener
 
 			}
 		}
-	g.drawImage(p.getPlayer(), p.getX(), p.getY(), null);
+	g.drawImage(p.getPlayer(), p.getTileX()*32, p.getTileY()*32, null);
         }
     
     private void verwijderObject(int posX, int posY)

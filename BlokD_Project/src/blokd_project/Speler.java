@@ -10,7 +10,7 @@ public class Speler extends SpelObject {
 //    private boolean heeftVriendGevonden = false;
 //    private int ammunitie = 0;
 //    private int aantalStappen = 0; //aantal stappen telt op 
-    private int x, y, tileX, tileY;
+    private int tileX, tileY;
     private Image playerImage;
 
     private String getPath(String path) {
@@ -21,22 +21,13 @@ public class Speler extends SpelObject {
     public Speler() {
         ImageIcon img = new ImageIcon(getPath("Images/player.png"));
         playerImage = img.getImage();
-        x = 32;
-        y = 32;
+        
         tileX = 1;
         tileY = 1;
     }
 
     public Image getPlayer() {
         return playerImage;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 
     public int getTileX() {
@@ -47,12 +38,10 @@ public class Speler extends SpelObject {
         return tileY;
     }
 
-    public void beweeg(int dx, int dy, int tx, int ty) {
-        x += dx;
-        y += dy;
+    public void beweeg(int dx, int dy) {
 
-        tileX += tx;
-        tileY += ty;
+        tileX += dx;
+        tileY += dy;
     }
 
     private void vuurBazooka() {
