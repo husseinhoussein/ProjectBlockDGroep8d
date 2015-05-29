@@ -1,6 +1,8 @@
 
 package blokd_project;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +15,9 @@ public class Veld extends JPanel implements ActionListener
 //    private int postitieX;
 //    private int positieY;
 //    private SpelObject item;
-    
+    private String message = "";
+    private boolean win = false;
+    private Font font = new Font("Serif", Font.BOLD, 48);
     public Timer timer;
     private Map m;
     private Speler p;
@@ -29,8 +33,14 @@ public class Veld extends JPanel implements ActionListener
 		timer.start();
 	}
 
+    @Override
 	public void actionPerformed(ActionEvent e)
 	{
+            if (m.getMap(p.getTileX(), p.getTileY()).equals("f"))
+		{
+			message = "You win";
+			win = true;
+		}
 		repaint();	
 	}
 
@@ -39,24 +49,34 @@ public class Veld extends JPanel implements ActionListener
 		super.paint(g);
 		//g.setColor(Color.red);
 		//g.fillRectangle(45, 60, 32, 32);
+                if (!win)
+                {
+                    for(int y = 0; y < 25; y++)
+                    {
+                            for(int x = 0; x < 25; x++)
+                            {
+                                    if(m.getMap(x,y).equals("g"))
+                                    {g.drawImage(m.getGrass(), x*25, y*25, null);}
 
-		for(int y = 0; y < 25; y++)
+                                    if(m.getMap(x,y).equals("w"))
+                                    {g.drawImage(m.getWall(), x*25, y*25, null);}
+
+                                    if(m.getMap(x,y).equals("f"))
+                                    {g.drawImage(m.getFriend(), x*25, y*25, null);}
+
+                            }
+                    }
+                }
+                
+                if(win)
 		{
-			for(int x = 0; x < 25; x++)
-			{
-				if(m.getMap(x,y).equals("g"))
-				{g.drawImage(m.getGrass(), x*25, y*25, null);}
-
-				if(m.getMap(x,y).equals("w"))
-				{g.drawImage(m.getWall(), x*25, y*25, null);}
-
-				if(m.getMap(x,y).equals("f"))
-				{g.drawImage(m.getFriend(), x*25, y*25, null);}
-
-			}
+		
+			g.setColor(Color.BLACK);
+			g.setFont(font);
+			
+			g.drawString (message, 150, 250);
 		}
 	g.drawImage(p.getPlayer(), p.getTileX()*25, p.getTileY()*25, null);
-        //g.drawImage(f.getFriend(), f.getTileX()*25, f.getTileY()*25, null);
 
         }
     
