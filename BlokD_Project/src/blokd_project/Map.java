@@ -22,9 +22,9 @@ public class Map {
     private Image grass, wall;
 
     public Map() {
-        ImageIcon img = new ImageIcon("C:\\Users\\Hussein\\Documents\\GitHub\\ProjectBlockDGroep8d\\BlokD_Project\\src\\blokd_project\\Images\\grass.png");
+        ImageIcon img = new ImageIcon(getPath("Images/grass.png"));
         grass = img.getImage();
-        img = new ImageIcon("C:\\Users\\Hussein\\Documents\\GitHub\\ProjectBlockDGroep8d\\BlokD_Project\\src\\blokd_project\\Images\\wall.png");
+        img = new ImageIcon(getPath("Images/wall.png"));
         wall = img.getImage();
 
         openFile();
@@ -45,9 +45,15 @@ public class Map {
         return index;
     }
 
+    private String getPath(String path) {
+        return new File("").getAbsolutePath() + "/src/blokd_project/" + path;
+
+    }
+
     public void openFile() {
         try {
-            m = new Scanner(new File("C:\\Users\\Hussein\\Documents\\GitHub\\ProjectBlockDGroep8d\\BlokD_Project\\src\\blokd_project\\MazeData\\maze.txt"));
+
+            m = new Scanner(new File(getPath("MazeData/maze.txt")));
         } catch (Exception e) {
             System.out.println("error loading map");
         }
@@ -65,4 +71,3 @@ public class Map {
         m.close();
     }
 }
-

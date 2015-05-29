@@ -1,6 +1,7 @@
 package blokd_project;
 
 import java.awt.Image;
+import java.io.File;
 import javax.swing.ImageIcon;
 
 public class Speler extends SpelObject {
@@ -12,8 +13,13 @@ public class Speler extends SpelObject {
     private int x, y, tileX, tileY;
     private Image playerImage;
 
+    private String getPath(String path) {
+        return new File("").getAbsolutePath() + "/src/blokd_project/" + path;
+
+    }
+    
     public Speler() {
-        ImageIcon img = new ImageIcon("C:\\Users\\Hussein\\Documents\\GitHub\\ProjectBlockDGroep8d\\BlokD_Project\\src\\blokd_project\\Images\\player.png");
+        ImageIcon img = new ImageIcon(getPath("Images/player.png"));
         playerImage = img.getImage();
         x = 32;
         y = 32;
