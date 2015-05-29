@@ -17,6 +17,7 @@ public class Veld extends JPanel implements ActionListener
     public Timer timer;
     private Map m;
     private Speler p;
+    private Vriend f;
     
     public Veld(/*int postitieX, int positieY, SpelObject plaatje*/) {
 		
@@ -49,12 +50,14 @@ public class Veld extends JPanel implements ActionListener
 				if(m.getMap(x,y).equals("w"))
 				{g.drawImage(m.getWall(), x*25, y*25, null);}
 
-				//if(m.getMap(x,y).equals("g"))
-				//{g.drawImage(m.getGrass(), x*32, y*32, null);}
+				if(m.getMap(x,y).equals("f"))
+				{g.drawImage(m.getFriend(), x*25, y*25, null);}
 
 			}
 		}
 	g.drawImage(p.getPlayer(), p.getTileX()*25, p.getTileY()*25, null);
+        //g.drawImage(f.getFriend(), f.getTileX()*25, f.getTileY()*25, null);
+
         }
     
     private void verwijderObject(int posX, int posY)

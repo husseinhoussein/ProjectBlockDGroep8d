@@ -19,13 +19,15 @@ public class Map {
     private Scanner m;
     private String Map[] = new String[25];
 
-    private Image grass, wall;
+    private Image grass, wall, friend;
 
     public Map() {
         ImageIcon img = new ImageIcon(getPath("Images/grass.png"));
         grass = img.getImage();
         img = new ImageIcon(getPath("Images/wall.png"));
         wall = img.getImage();
+        img = new ImageIcon(getPath("Images/friend.png"));
+        friend = img.getImage();
 
         openFile();
         readFile();
@@ -38,6 +40,10 @@ public class Map {
 
     public Image getWall() {
         return wall;
+    }
+    
+    public Image getFriend() {
+        return friend;
     }
 
     public String getMap(int x, int y) {
