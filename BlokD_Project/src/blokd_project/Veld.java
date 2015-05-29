@@ -22,7 +22,7 @@ public class Veld extends JPanel implements ActionListener
 		
                 m = new Map();
 		p = new Speler();
-		addKeyListener(new KeyboardListener(p));
+		addKeyListener(new KeyboardListener(p, m));
 		setFocusable(true);
 		timer = new Timer(25, this);
 		timer.start();

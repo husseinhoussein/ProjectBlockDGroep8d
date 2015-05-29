@@ -68,14 +68,14 @@ public class Level {
         generateMaze(0, 0);
     }
 
-    public static void main(String[] args) {
-        int x = args.length >= 1 ? (Integer.parseInt(args[0])) : 8;
-        int y = args.length == 2 ? (Integer.parseInt(args[1])) : 8;
-        Level maze = new Level(x, y);
-
-        maze.generateMaze(x, y);
-        maze.display(null);
-    } 
+//    public static void main(String[] args) {
+//        int x = args.length >= 1 ? (Integer.parseInt(args[0])) : 8;
+//        int y = args.length == 2 ? (Integer.parseInt(args[1])) : 8;
+//        Level maze = new Level(x, y);
+//
+//        maze.generateMaze(x, y);
+//        maze.display(null);
+//    } 
 
     public void display(Graphics g) { 
         
