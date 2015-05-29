@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 public class Map {
 
     private Scanner m;
-    private String Map[] = new String[14];
+    private String Map[] = new String[25];
 
     private Image grass, wall;
 
@@ -61,7 +61,7 @@ public class Map {
 
     public void readFile() {
         while (m.hasNext()) {
-            for (int i = 0; i < 14; i++) {
+            for (int i = 0; i < 25; i++) {
                 Map[i] = m.next();
             }
         }

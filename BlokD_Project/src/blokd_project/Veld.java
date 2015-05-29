@@ -39,9 +39,9 @@ public class Veld extends JPanel implements ActionListener
 		//g.setColor(Color.red);
 		//g.fillRectangle(45, 60, 32, 32);
 
-		for(int y = 0; y < 14; y++)
+		for(int y = 0; y < 25; y++)
 		{
-			for(int x = 0; x < 14; x++)
+			for(int x = 0; x < 25; x++)
 			{
 				if(m.getMap(x,y).equals("g"))
 				{g.drawImage(m.getGrass(), x*32, y*32, null);}
