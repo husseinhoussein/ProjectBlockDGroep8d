@@ -28,6 +28,7 @@ public class Veld extends JPanel implements ActionListener
     private Helper h;
     private Bazooka b;
     private Valsspeler c;
+    private Doolhof s;
     
     public Veld(/*int postitieX, int positieY, SpelObject plaatje*/) {
 		
@@ -39,8 +40,9 @@ public class Veld extends JPanel implements ActionListener
                 h = new Helper();
                 b = new Bazooka();
                 c = new Valsspeler();
-                
-		addKeyListener(new KeyboardListener(p, m));
+               
+               // s = new Doolhof();
+		addKeyListener(new KeyboardListener(p, m, s));
 		setFocusable(true);
 		timer = new Timer(25, this);
 		timer.start();

@@ -8,30 +8,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JComponent;
 
-public class ClickListener implements ActionListener
-{ //non functioneel, moet nog correct geimplenteerd worden.
-    private JComponent comp;
-    private Level lvl;
-    
+public class ClickListener implements ActionListener { //non functioneel, moet nog correct geimplenteerd worden.
+    // private JComponent comp;
+    // private Doolhof doolhof;
 
-    public ClickListener(JComponent comp) {
-        this.comp = comp;
+    private Veld veld;
+
+    public ClickListener(Veld veld) {
+        this.veld = veld;
     }
 
-    ClickListener(Level lvl) {
-        this.lvl = lvl;
-    }
-   
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        //this.comp.repaint(veld);
+        this.veld.repaint();
+//        System.out.println("I was clicked.");
 
-
-
-   @Override
-    public void actionPerformed(ActionEvent event)
-    {
-//      this.comp.repaint();
-        
-        
        // this.lvl.display(null);
-        
     }
 }
