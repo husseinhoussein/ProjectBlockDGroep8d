@@ -10,13 +10,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 
-public class FrameBaseViewer {
+public class FrameBaseViewer {}
 
 //    public static void main(String[] args) {
+//        new FrameBaseViewer();
+//           
+//    }
 //
-//        int[][] maze = null;
-//
-//        JFrame doolhofFrame = new JFrame();
+//    public FrameBaseViewer() {
+//         JFrame doolhofFrame = new JFrame();
 //
 //        JPanel panelNorth = new JPanel();
 //        JPanel panelSouth = new JPanel();
@@ -36,25 +38,8 @@ public class FrameBaseViewer {
 //        doolhofFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        doolhofFrame.setSize(500, 400);
 //
-////        int a = args.length >= 1 ? (Integer.parseInt(args[0])) : 8;
-////        int b = args.length == 2 ? (Integer.parseInt(args[1])) : 8;
-////
-////        int a = 0; 
-////        int b = 0; 
-////        Level lvl = new Level(a, b, maze);   <------ het lag hier aan, die maze parameter verklote alles.
-////        alleen lukt het nu niet met de getX, hij maakt de hele tijd dezelfde maze aan, 
-////        ik dacht misschien aan een loop die het groter en "moeilijker"maakt.
-////        P.S. de a, b en dan a = x, b = y omzeiling eindigd weer in alleen de plusjes... so i am at a loss.
-//        Level lvl;
-//        int x = 12;//lvl.getX();
-//        int y = 10;//lvl.getY();
-////        a = x;
-////        b = y;
-//        lvl =  new Level(x, y);
-//        lvl.generateMaze(x, y);
-//
-//        ActionListener listener = new ClickListener(lvl);
-//        startB.addActionListener(listener);
+//        //ActionListener listener = new ClickListener();
+//       // startB.addActionListener(listener);
 //        doolhofFrame.setVisible(true);
 //    }
 //}
@@ -85,4 +70,3 @@ public class FrameBaseViewer {
 ////        frame.add(southPanel, BorderLayout.SOUTH);
 ////        ActionListener listener = new ClickListener();
 ////        button.addActionListener(listener);
-}
