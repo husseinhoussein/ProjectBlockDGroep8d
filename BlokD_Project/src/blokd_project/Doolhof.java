@@ -16,40 +16,44 @@ import javax.swing.border.EtchedBorder;
 
 public class Doolhof {
 
-   // private Level currentLevel;
+    // private Level currentLevel;
 //    private KeyboardListener kL;
     private final int FRAME_WIDTH = 768;
     private final int FRAME_HEIGHT = 740;
-    private int STEPS = 0;
     private int AMMO = 999;
     private int LEVEL = 1;
+    
 
     public static void main(String[] args) {
         new Doolhof();
     }
-    
 
     public Doolhof() {
-       // STEPS = kL.getSTEPS();
+
+        
+        JLabel steps = new JLabel("Aantal stappen: 0" );
+        Veld veld = new Veld(steps);
+        
         JFrame frame = new JFrame();
         frame.setTitle("Maze Game");
-        frame.add(new Veld());
+        frame.add(veld);
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JLabel steps = new JLabel("Aantal stappen:" + STEPS);
-        JLabel hints = new JLabel("Hints: "+ "Beweeg met de pijltjes toetsen");
-        JLabel ammo = new JLabel("Ammo: "+ AMMO);
-        JLabel currentLevel = new JLabel("Level: "+ LEVEL);
+        
+        JLabel hints = new JLabel("Hints: " + "Beweeg met de pijltjes toetsen");
+        JLabel ammo = new JLabel("Ammo: " + AMMO);
+        JLabel currentLevel = new JLabel("Level: " + LEVEL);
 
         JButton start = new JButton("Start");
         JButton reset = new JButton("Reset");
-        Veld veld = new Veld();
+        
+
         ActionListener listener = new ClickListener(veld);
         reset.addActionListener(listener);
-        
+
         JPanel panelNorth = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JPanel panelSouth = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JPanel panelWest = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -65,10 +69,10 @@ public class Doolhof {
         panelNorth.add(panelHints, BorderLayout.EAST);
         panelCornerNorth.add(steps);
         panelHints.add(hints);
-        
+
         panelSouth.add(start);
         panelSouth.add(reset);
-        
+
 //        panelWest.add(panelInfo);
 //        panelWest.add(panelInfo2);
         panelWest.add(currentLevel, BorderLayout.WEST);
@@ -82,17 +86,7 @@ public class Doolhof {
         panelSouth.setPreferredSize(new Dimension(FRAME_WIDTH, 40));
         panelWest.setPreferredSize(new Dimension(125, FRAME_HEIGHT));
         panelHints.setPreferredSize(new Dimension(FRAME_WIDTH - 145, 40));
-        
-        
 
-    }
-
-    public int getSTEPS() {
-        return STEPS;
-    }
-
-    public void setSTEPS(int STEPS) {
-        this.STEPS = STEPS;
     }
 
     private void mazeStart() {

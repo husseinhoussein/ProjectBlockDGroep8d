@@ -49,7 +49,7 @@ public class Map {
     public void openFile() {
         try {
 
-            m = new Scanner(new File(getPath("MazeData/maze.txt")));
+            m = new Scanner(new File(getPath("MazeData/maze_2.txt")));
         } catch (Exception e) {
             System.out.println("error loading map");
         }

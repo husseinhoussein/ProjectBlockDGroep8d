@@ -19,7 +19,7 @@ public class Vriend extends SpelObject
         tileY = 1;
     }
 
-    public Image getFriend() {
+    public Image getFriendImage() {
         return friendImage;
     }
 

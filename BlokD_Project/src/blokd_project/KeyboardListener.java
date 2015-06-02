@@ -2,18 +2,21 @@ package blokd_project;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class KeyboardListener extends KeyAdapter {
 
-    Speler p;
-    Map m;
-    Doolhof s;
-    private int STEPS = 0;
+    private Speler p;
+    private Map m;
+    private JLabel label;
+    private Muur w;
 
-    public KeyboardListener(Speler p, Map m, Doolhof s) {
+    public KeyboardListener(Speler p, Map m, JLabel label, Muur w) {
         this.p = p;
         this.m = m;
-        this.s = s;
+        this.label = label;
+        this.w = w;
 
     }
 
@@ -21,52 +24,36 @@ public class KeyboardListener extends KeyAdapter {
     public void keyPressed(KeyEvent e) {
         int keycode = e.getKeyCode();
         if (keycode == KeyEvent.VK_UP) {
-            if (!m.getMap(p.getTileX(), p.getTileY() - 1).equals("w")) {
+            if (w.checkWallNorth()) {
                 p.beweeg(0, -1);
-//                setStep();
             }
         }
         if (keycode == KeyEvent.VK_DOWN) {
-            if (!m.getMap(p.getTileX(), p.getTileY() + 1).equals("w")) {
+            if (w.checkWallSouth()){
                 p.beweeg(0, 1);
-//                setStep();
             }
         }
         if (keycode == KeyEvent.VK_LEFT) {
-            if (!m.getMap(p.getTileX() - 1, p.getTileY()).equals("w")) {
+            if (w.checkWallWest()) {
                 p.beweeg(-1, 0);
-//                setStep();
 
             }
         }
         if (keycode == KeyEvent.VK_RIGHT) {
-            if (!m.getMap(p.getTileX() + 1, p.getTileY()).equals("w")) {
+            if (w.checkWallEast()) {
                 p.beweeg(1, 0);
-//                setStep();
+
             }
         }
+        this.label.setText("Aantal stappen: " + p.getSteps());
     }
 
-//    private void setStep() {
-////        if (s.getSTEPS() < 0) {
-//
-//        STEPS = s.getSTEPS();
-//        System.out.println(STEPS);
-//        STEPS++;
-//        System.out.println(STEPS); //nu kun je hopelijk zien of ie wordt opgehoogd, denk ik
-//        s.setSTEPS(STEPS);
-////        }
-//
-//    }
-
+    @Override
     public void keyReleased(KeyEvent e) {
 
     }
 
-    public int getSTEPS() {
-        return STEPS;
-    }
-
+    @Override
     public void keyTyped(KeyEvent e) {
 
     }

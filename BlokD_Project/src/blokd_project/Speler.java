@@ -12,19 +12,22 @@ public class Speler extends SpelObject {
 //    private int aantalStappen = 0; //aantal stappen telt op 
     private int tileX, tileY;
     private Image playerImage;
+    private int steps;
 
-
-    
     public Speler() {
         ImageIcon img = new ImageIcon(getPath("Images/player.png"));
         playerImage = img.getImage();
-        
-        tileX = 1;
-        tileY = 1;
+
+        tileX = 12;
+        tileY = 13;
     }
 
-    public Image getPlayer() {
+    public Image getPlayerImage() {
         return playerImage;
+    }
+
+    public int getSteps() {
+        return steps;
     }
 
     public int getTileX() {
@@ -39,6 +42,7 @@ public class Speler extends SpelObject {
 
         tileX += dx;
         tileY += dy;
+        steps++;
     }
 
     private void vuurBazooka() {
