@@ -39,7 +39,6 @@ public class Speler extends SpelObject {
     }
 
     public void beweeg(int dx, int dy) {
-
         tileX += dx;
         tileY += dy;
         steps++;

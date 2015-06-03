@@ -17,7 +17,6 @@ public class KeyboardListener extends KeyAdapter {
         this.m = m;
         this.label = label;
         this.w = w;
-
     }
 
     @Override

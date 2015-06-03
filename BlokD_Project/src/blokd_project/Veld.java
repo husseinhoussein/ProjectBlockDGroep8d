@@ -13,7 +13,6 @@ import javax.swing.Timer;
 public class Veld extends JPanel implements ActionListener {
     private int x = 0;
     private int y = 0;
-//    private SpelObject item;
 
     private String message = "";
     private boolean win = false;
@@ -41,7 +40,6 @@ public class Veld extends JPanel implements ActionListener {
         b = new Bazooka();
         c = new Valsspeler();
 
-        // s = new Doolhof();
         addKeyListener(new KeyboardListener(p, m, label, w));
         setFocusable(true);
         timer = new Timer(25, this);
@@ -79,11 +77,7 @@ public class Veld extends JPanel implements ActionListener {
             for (int y = 0; y < 25; y++) {
                 for (int x = 0; x < 25; x++) {
 
-//                    if (m.getMap(x, y).equals("p")) {
-
                         graphics.drawImage(p.getPlayerImage(), p.getTileX() * 25, p.getTileY() * 25, null);
-//
-//                    }
                     if (m.getMap(x, y).equals("g")) {
                         graphics.drawImage(g.getGrassImage(), x * 25, y * 25, null);
                     }
@@ -107,16 +101,13 @@ public class Veld extends JPanel implements ActionListener {
                     if (m.getMap(x, y).equals("c")) {
                         graphics.drawImage(c.getCheaterImage(), x * 25, y * 25, null);
                     }
-
                 }
             }
         }
 
         if (win) {
-
             graphics.setColor(Color.BLACK);
             graphics.setFont(font);
-
             graphics.drawString(message, 150, 250);
         }
 

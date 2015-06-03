@@ -3,8 +3,6 @@ package blokd_project;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -17,7 +15,6 @@ import javax.swing.border.EtchedBorder;
 public class Doolhof {
 
     // private Level currentLevel;
-//    private KeyboardListener kL;
     private final int FRAME_WIDTH = 768;
     private final int FRAME_HEIGHT = 740;
     private int AMMO = 999;
@@ -29,7 +26,6 @@ public class Doolhof {
     }
 
     public Doolhof() {
-
         
         JLabel steps = new JLabel("Aantal stappen: 0" );
         Veld veld = new Veld(steps);
@@ -73,8 +69,6 @@ public class Doolhof {
         panelSouth.add(start);
         panelSouth.add(reset);
 
-//        panelWest.add(panelInfo);
-//        panelWest.add(panelInfo2);
         panelWest.add(currentLevel, BorderLayout.WEST);
         panelWest.add(ammo, BorderLayout.WEST);
 

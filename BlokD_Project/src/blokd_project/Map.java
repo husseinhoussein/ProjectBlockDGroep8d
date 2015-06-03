@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package blokd_project;
 
 import java.awt.Image;
@@ -10,10 +6,6 @@ import java.io.File;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Hussein
- */
 public class Map {
 
     private Scanner m;
@@ -25,7 +17,6 @@ public class Map {
         ImageIcon img = new ImageIcon(getPath("Images/grass.png"));
         grass = img.getImage();
       
-
         openFile();
         readFile();
         closeFile();
@@ -34,8 +25,7 @@ public class Map {
     public Image getGrass() {
         return grass;
     }
-
-    
+ 
     public String getMap(int x, int y) {
         String index = Map[y].substring(x, x + 1);
         return index;
@@ -48,7 +38,6 @@ public class Map {
 
     public void openFile() {
         try {
-
             m = new Scanner(new File(getPath("MazeData/maze_2.txt")));
         } catch (Exception e) {
             System.out.println("error loading map");

@@ -58,7 +58,3 @@ public class Level {
         this.maze = maze;
     }
 }
-    //private String[][] doolhof;
-
-//    public Level(int x, int y) {
-//       }

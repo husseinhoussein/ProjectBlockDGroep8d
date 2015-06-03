@@ -9,7 +9,6 @@ public class Vriend extends SpelObject
 {
     private int tileX, tileY;
     private Image friendImage;
-
      
     public Vriend() {
         ImageIcon img = new ImageIcon(getPath("Images/friend.png"));
@@ -32,7 +31,6 @@ public class Vriend extends SpelObject
     }
 
     public void beweeg(int dx, int dy) {
-
         tileX += dx;
         tileY += dy;
     }
