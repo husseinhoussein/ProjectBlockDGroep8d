@@ -1,26 +1,27 @@
-
 package blokd_project;
 
 import java.awt.Image;
-import java.io.File;
+import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
-public class Vriend extends SpelObject
-{
+public class Vriend extends SpelObject {
+
     private int tileX, tileY;
     private Image friendImage;
-     
+    private String friendPath = "friend.png";
+    private boolean win = false;
+
     public Vriend() {
-        ImageIcon img = new ImageIcon(getPath("Images/friend.png"));
+
+        ImageIcon img = new ImageIcon(getImagePath(friendPath));
         friendImage = img.getImage();
-        
+
         tileX = 1;
         tileY = 1;
     }
 
-    public Image getFriendImage() {
-        return friendImage;
-    }
+
 
     public int getTileX() {
         return tileX;
@@ -34,9 +35,10 @@ public class Vriend extends SpelObject
         tileX += dx;
         tileY += dy;
     }
-    
-    private void spelBeindigen()
-    {
-        //wanneer Speler op Vriend komt, moet de game worden gestopt.
+
+    @Override
+    public Image getImage() {
+        return friendImage;
     }
+
 }

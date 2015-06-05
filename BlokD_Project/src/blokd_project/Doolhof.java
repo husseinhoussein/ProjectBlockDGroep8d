@@ -14,15 +14,16 @@ import javax.swing.border.EtchedBorder;
 
 public class Doolhof {
 
-    // private Level currentLevel;
+    protected final int N = 25;
     private final int FRAME_WIDTH = 768;
     private final int FRAME_HEIGHT = 740;
-    private int AMMO = 999;
-    private int LEVEL = 1;
+    private int ammo = 999;
+    private int level = 1;
     
 
     public static void main(String[] args) {
         new Doolhof();
+        
     }
 
     public Doolhof() {
@@ -39,9 +40,9 @@ public class Doolhof {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         
-        JLabel hints = new JLabel("Hints: " + "Beweeg met de pijltjes toetsen");
-        JLabel ammo = new JLabel("Ammo: " + AMMO);
-        JLabel currentLevel = new JLabel("Level: " + LEVEL);
+        JLabel hintsL = new JLabel("Hints: " + "Beweeg met de pijltjes toetsen");
+        JLabel ammoL = new JLabel("Ammo: " + ammo);
+        JLabel currentLevelL = new JLabel("Level: " + level);
 
         JButton start = new JButton("Start");
         JButton reset = new JButton("Reset");
@@ -64,13 +65,13 @@ public class Doolhof {
         panelNorth.add(panelCornerNorth, BorderLayout.WEST);
         panelNorth.add(panelHints, BorderLayout.EAST);
         panelCornerNorth.add(steps);
-        panelHints.add(hints);
+        panelHints.add(hintsL);
 
         panelSouth.add(start);
         panelSouth.add(reset);
 
-        panelWest.add(currentLevel, BorderLayout.WEST);
-        panelWest.add(ammo, BorderLayout.WEST);
+        panelWest.add(currentLevelL, BorderLayout.WEST);
+        panelWest.add(ammoL, BorderLayout.WEST);
 
         panelCornerNorth.setBorder(new EtchedBorder());
         panelHints.setBorder(new EtchedBorder());
@@ -80,6 +81,7 @@ public class Doolhof {
         panelSouth.setPreferredSize(new Dimension(FRAME_WIDTH, 40));
         panelWest.setPreferredSize(new Dimension(125, FRAME_HEIGHT));
         panelHints.setPreferredSize(new Dimension(FRAME_WIDTH - 145, 40));
+      //  frame.repaint();
 
     }
 
@@ -91,7 +93,4 @@ public class Doolhof {
         //regenerate level
     }
 
-    private void destroyWall() {
-        //roep Veld.verwijderObject aan
-    }
 }

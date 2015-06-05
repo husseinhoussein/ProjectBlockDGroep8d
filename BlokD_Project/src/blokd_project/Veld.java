@@ -3,6 +3,7 @@ package blokd_project;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -11,55 +12,97 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Veld extends JPanel implements ActionListener {
+
     private int x = 0;
     private int y = 0;
+    private int N = 25;
+
+    Tegel[][] doolhof = new Tegel[N][N];
 
     private String message = "";
     private boolean win = false;
+    private boolean kanKapot = false;
     private Font font = new Font("Serif", Font.BOLD, 48);
     public Timer timer;
 
     private Map m;
     private Speler p;
-    private Vriend f;
-    private Muur w;
-    private Gras g;
-    private Helper h;
-    private Bazooka b;
-    private Valsspeler c;
-    private Veld v;
+
+    //private Veld v;
 
     public Veld(JLabel label) {
 
         m = new Map();
         p = new Speler();
-        f = new Vriend();
-        w = new Muur(p, m);
-        g = new Gras();
-        h = new Helper();
-        b = new Bazooka();
-        c = new Valsspeler();
+      
 
-        addKeyListener(new KeyboardListener(p, m, label, w));
+        addKeyListener(new KeyboardListener(p, label));
         setFocusable(true);
         timer = new Timer(25, this);
         timer.start();
+        initTegel();
+
     }
 
-    public Veld(Timer timer, Map m, Speler p, Vriend f, Muur w, Gras g, Helper h, Bazooka b, Valsspeler c, Veld v) {
-        this.timer = timer;
-        this.m = m;
-        this.p = p;
-        this.f = f;
-        this.w = w;
-        this.g = g;
-        this.h = h;
-        this.b = b;
-        this.c = c;
-        this.v = v;
+    private void initTegel() {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                doolhof[i][j] = new Tegel(i, j);
+                switch (m.getMap(i, j)) {
+                    case "w":
+                        doolhof[i][j].setSpelObject(new Muur());
+                        break;
+                    case "g":
+                        doolhof[i][j].setSpelObject(new Gras());
+                        break;
+                    case "f":
+                        doolhof[i][j].setSpelObject(new Vriend());
+                        break;
+                    case "h":
+                        doolhof[i][j].setSpelObject(new Helper());
+                        break;
+                    case "p":
+                        doolhof[i][j].setSpelObject(p);
+                        break;
+                    case "b":
+                        doolhof[i][j].setSpelObject(new Bazooka());
+                        break;
+                    case "c":
+                        doolhof[i][j].setSpelObject(new Valsspeler());
+                        break;
+                }
+                
+            }
+        }
+        for (int i = 1; i < N - 1; i++) {
+            for (int j = 1; j < N - 1; j++) {
+                doolhof[i][j].setNeighbours(doolhof[i][j - 1], doolhof[i - 1][j], doolhof[i + 1][j], doolhof[i][j + 1]);
+            }
+        }
+
     }
 
-   
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        drawItems((Graphics) g);
+    }
+
+    private void drawItems(Graphics gr) {
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+
+                gr.drawImage(doolhof[i][j].getMijnObject().getImage(), i * 25, j * 25, 25, 25, null);
+                
+                repaint(i);
+                repaint(j);
+            }
+            
+          
+        }  
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -68,62 +111,6 @@ public class Veld extends JPanel implements ActionListener {
             win = true;
         }
         repaint();
-    }
-
-    @Override
-    public void paint(Graphics graphics) {
-        super.paint(graphics);
-        if (!win) {
-            for (int y = 0; y < 25; y++) {
-                for (int x = 0; x < 25; x++) {
-
-                        graphics.drawImage(p.getPlayerImage(), p.getTileX() * 25, p.getTileY() * 25, null);
-                    if (m.getMap(x, y).equals("g")) {
-                        graphics.drawImage(g.getGrassImage(), x * 25, y * 25, null);
-                    }
-
-                    if (m.getMap(x, y).equals("w")) {
-                        graphics.drawImage(w.getWallImage(), x * 25, y * 25, null);
-                    }
-
-                    if (m.getMap(x, y).equals("f")) {
-                        graphics.drawImage(f.getFriendImage(), x * 25, y * 25, null);
-                    }
-
-                    if (m.getMap(x, y).equals("h")) {
-                        graphics.drawImage(h.getHelperImage(), x * 25, y * 25, null);
-                    }
-
-                    if (m.getMap(x, y).equals("b")) {
-                        graphics.drawImage(b.getBazookaImage(), x * 25, y * 25, null);
-                    }
-
-                    if (m.getMap(x, y).equals("c")) {
-                        graphics.drawImage(c.getCheaterImage(), x * 25, y * 25, null);
-                    }
-                }
-            }
-        }
-
-        if (win) {
-            graphics.setColor(Color.BLACK);
-            graphics.setFont(font);
-            graphics.drawString(message, 150, 250);
-        }
-
-    }
-
-    private void verwijderObject(int posX, int posY) {
-        //verwijder een object op meegegeven veld
-    }
-
-    private void plaatsObject(int posX, int posY) {
-        //plaats een object op meegegeven veld
-    }
-
-    private Veld getNeighbour(int posX, int posY) {
-        //geeft buurvelde terug van meegegeven veld
-        return null;
     }
 
 }

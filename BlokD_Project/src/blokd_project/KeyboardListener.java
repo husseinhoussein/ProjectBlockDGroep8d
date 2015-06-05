@@ -8,41 +8,41 @@ import javax.swing.JPanel;
 public class KeyboardListener extends KeyAdapter {
 
     private Speler p;
-    private Map m;
     private JLabel label;
-    private Muur w;
 
-    public KeyboardListener(Speler p, Map m, JLabel label, Muur w) {
+
+    public KeyboardListener(Speler p, JLabel label) {
         this.p = p;
-        this.m = m;
         this.label = label;
-        this.w = w;
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         int keycode = e.getKeyCode();
         if (keycode == KeyEvent.VK_UP) {
-            if (w.checkWallNorth()) {
+          //  if (!tegel.getNorth().equals(veld.doolhof.equals("w"))) {
                 p.beweeg(0, -1);
-            }
+                
+       //     }
         }
         if (keycode == KeyEvent.VK_DOWN) {
-            if (w.checkWallSouth()){
+          
+          //  if (tegel.getSouth()) {
                 p.beweeg(0, 1);
-            }
+          
+           // }
         }
         if (keycode == KeyEvent.VK_LEFT) {
-            if (w.checkWallWest()) {
+//            if (tegel.getWest().equals(veld.doolhof.equals("w"))) {
                 p.beweeg(-1, 0);
 
-            }
+//            }
         }
         if (keycode == KeyEvent.VK_RIGHT) {
-            if (w.checkWallEast()) {
+//            if (tegel.getEast().equals(veld.doolhof.equals("w"))) {
                 p.beweeg(1, 0);
 
-            }
+//            }
         }
         this.label.setText("Aantal stappen: " + p.getSteps());
     }

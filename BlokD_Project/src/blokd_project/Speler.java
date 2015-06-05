@@ -12,19 +12,17 @@ public class Speler extends SpelObject {
 //    private int aantalStappen = 0; //aantal stappen telt op 
     private int tileX, tileY;
     private Image playerImage;
+    private String playerPath = "player.png";
     private int steps;
 
     public Speler() {
-        ImageIcon img = new ImageIcon(getPath("Images/player.png"));
+        ImageIcon img = new ImageIcon(getImagePath(playerPath));
         playerImage = img.getImage();
 
         tileX = 12;
         tileY = 13;
     }
 
-    public Image getPlayerImage() {
-        return playerImage;
-    }
 
     public int getSteps() {
         return steps;
@@ -51,6 +49,11 @@ public class Speler extends SpelObject {
     @Override
     public String toString() {
         return "S";
+    }
+
+    @Override
+    public Image getImage() {
+        return playerImage;
     }
 
 }

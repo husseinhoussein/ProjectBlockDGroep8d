@@ -1,26 +1,41 @@
-
 package blokd_project;
 
+import java.awt.Image;
 import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 
-public class SpelObject 
-{
-    private JComponent muur;
+public abstract class SpelObject {
+
+    private Tegel mijnTegel;
     
-      public String getPath(String path) {
+
+    public String getFilePath(String path) {
         return new File("").getAbsolutePath() + "/src/blokd_project/" + path;
 
     }
-    
-    private void tekenObject() 
-    {
-        this.muur.repaint();
+
+    public String getImagePath(String path) {
+        return new File("").getAbsolutePath() + "/src/blokd_project/Images/" + path;
+
     }
+    public abstract Image getImage();
     
-    private void pakObject()
-    {
+    protected void setTile(Tegel t){
+        mijnTegel = t;
+    }
+//    public Image getPlaatje() {
+//        return plaatje;
+//    }
+    
+   
+
+//    private void tekenObject() {
+//  //      this.muur.repaint();
+//    }
+
+    private void pakObject() {
         //code die oa de speler een ander spelobject laat meenemen/gebruiken/activeren ofzo
     }
-    
+
 }
