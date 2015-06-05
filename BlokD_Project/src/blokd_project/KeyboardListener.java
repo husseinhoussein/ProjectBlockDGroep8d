@@ -9,6 +9,7 @@ public class KeyboardListener extends KeyAdapter {
 
     private Speler p;
     private JLabel label;
+    private Veld veld;
 
 
     public KeyboardListener(Speler p, JLabel label) {
@@ -22,6 +23,7 @@ public class KeyboardListener extends KeyAdapter {
         if (keycode == KeyEvent.VK_UP) {
           //  if (!tegel.getNorth().equals(veld.doolhof.equals("w"))) {
                 p.beweeg(0, -1);
+                
                 
        //     }
         }

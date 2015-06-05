@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package blokd_project;
 
-/**
- *
- * @author Hussein
- */
 public class Tegel {
 
     private int positieY = 0;
@@ -55,14 +47,6 @@ public class Tegel {
         south = s;
         west = w;
 
-//        north.positieX = 0;
-//        north.positieY = -1;
-//        east.positieX = +1;
-//        east.positieY = 0;
-//        south.positieX = 0;
-//        south.positieY = +1;
-//        west.positieX = -1;
-//        west.positieY = 0;
     }
 
     public SpelObject getMijnObject() {

@@ -6,10 +6,6 @@ import javax.swing.ImageIcon;
 
 public class Speler extends SpelObject {
 
-//    private String character = "C"; //deze moet plaatje van spelobject overschrijven private SpelObject character = 
-//    private boolean heeftVriendGevonden = false;
-//    private int ammunitie = 0;
-//    private int aantalStappen = 0; //aantal stappen telt op 
     private int tileX, tileY;
     private Image playerImage;
     private String playerPath = "player.png";

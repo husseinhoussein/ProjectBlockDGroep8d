@@ -1,12 +1,9 @@
 package blokd_project;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -29,19 +26,16 @@ public class Veld extends JPanel implements ActionListener {
     private Speler p;
 
     //private Veld v;
-
     public Veld(JLabel label) {
 
         m = new Map();
         p = new Speler();
-      
 
         addKeyListener(new KeyboardListener(p, label));
         setFocusable(true);
         timer = new Timer(25, this);
         timer.start();
         initTegel();
-
     }
 
     private void initTegel() {
@@ -71,7 +65,6 @@ public class Veld extends JPanel implements ActionListener {
                         doolhof[i][j].setSpelObject(new Valsspeler());
                         break;
                 }
-                
             }
         }
         for (int i = 1; i < N - 1; i++) {
@@ -79,7 +72,6 @@ public class Veld extends JPanel implements ActionListener {
                 doolhof[i][j].setNeighbours(doolhof[i][j - 1], doolhof[i - 1][j], doolhof[i + 1][j], doolhof[i][j + 1]);
             }
         }
-
     }
 
     @Override
@@ -95,13 +87,11 @@ public class Veld extends JPanel implements ActionListener {
             for (int j = 0; j < N; j++) {
 
                 gr.drawImage(doolhof[i][j].getMijnObject().getImage(), i * 25, j * 25, 25, 25, null);
-                
+
                 repaint(i);
                 repaint(j);
             }
-            
-          
-        }  
+        }
     }
 
     @Override
@@ -112,5 +102,4 @@ public class Veld extends JPanel implements ActionListener {
         }
         repaint();
     }
-
 }
