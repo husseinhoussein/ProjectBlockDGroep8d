@@ -20,6 +20,14 @@ public class Tegel {
         return positieY;
     }
 
+    public void setPositieY(int positieY) {
+        this.positieY = positieY;
+    }
+
+    public void setPositieX(int positieX) {
+        this.positieX = positieX;
+    }
+    
     public Tegel getNorth() {
         return north;
     }
