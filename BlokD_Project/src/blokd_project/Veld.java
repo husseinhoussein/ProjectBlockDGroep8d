@@ -36,7 +36,6 @@ public class Veld extends JPanel implements ActionListener {
         timer = new Timer(25, this);
         timer.start();
         initTegel();
-        temp();
     }
 
     private void initTegel() {
@@ -46,7 +45,6 @@ public class Veld extends JPanel implements ActionListener {
                 switch (m.getMap(i, j)) {
                     case "w":
                         doolhof[i][j].setSpelObject(new Muur());
-
                         break;
                     case "g":
                         doolhof[i][j].setSpelObject(new Gras());
@@ -59,13 +57,7 @@ public class Veld extends JPanel implements ActionListener {
                         break;
                     case "p":
                         doolhof[i][j].setSpelObject(p);
-                        
-                        int pY = doolhof[i][j].getPositieY();
-                        doolhof[i][j].setPositieY(pY +  1);
-                        System.out.println();
-                        repaint(pY +1);
-                        
-                        break; 
+                        break;
                     case "b":
                         doolhof[i][j].setSpelObject(new Bazooka());
                         break;
@@ -77,24 +69,8 @@ public class Veld extends JPanel implements ActionListener {
         }
         for (int i = 1; i < N - 1; i++) {
             for (int j = 1; j < N - 1; j++) {
-                doolhof[i][j].setNeighbours(doolhof[i][j - 1], doolhof[i - 1][j], doolhof[i + 1][j], doolhof[i][j + 1]);
+                doolhof[i][j].setNeighbours(doolhof[i][j - 1], doolhof[i + 1][j], doolhof[i][j + 1], doolhof[i - 1][j]);
             }
-        }
-    }
-
-    private void temp() {
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                int pX = doolhof[i][j].getPositieX();
-                int pY = doolhof[i][j].getPositieY();
-
-                System.out.println(pX);
-                System.out.println(pY);
-//                pX = 1;
-//                pY = 3;
-
-            }
-
         }
     }
 
@@ -121,7 +97,7 @@ public class Veld extends JPanel implements ActionListener {
 //        if (m.getMap(p.getTileX(), p.getTileY()).equals("f")) {
 //            message = "You win";
 //            win = true;
-        }
-//        repaint();
-//    }
+//        }
+        repaint();
+    }
 }

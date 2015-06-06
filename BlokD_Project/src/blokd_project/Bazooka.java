@@ -5,8 +5,6 @@ import javax.swing.ImageIcon;
 
 public class Bazooka extends SpelObject {
 
-    private int kogel = 1;
-
     private Image bazookaImage;
     private String bazookaPath = "bazooka.png";
 
@@ -18,6 +16,10 @@ public class Bazooka extends SpelObject {
     @Override
     public Image getImage() {
         return bazookaImage;
+    }
+
+    public void vernietig() {
+        
     }
 
 }

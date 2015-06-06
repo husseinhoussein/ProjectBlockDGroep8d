@@ -1,6 +1,8 @@
 
 package blokd_project;
 
+import java.util.HashSet;
+
 public class Tegel {
 
     private int positieY = 0;
@@ -20,14 +22,6 @@ public class Tegel {
         return positieY;
     }
 
-    public void setPositieY(int positieY) {
-        this.positieY = positieY;
-    }
-
-    public void setPositieX(int positieX) {
-        this.positieX = positieX;
-    }
-    
     public Tegel getNorth() {
         return north;
     }
@@ -66,7 +60,13 @@ public class Tegel {
         s.setTile(this);
     }
 
-    private void verwijderObject(int posX, int posY) {
-        //verwijder een object op meegegeven veld
+    protected void verwijderObject(Tegel weg) {
+        weg.setSpelObject(mijnObject);
+        setSpelObject(new Gras());   
+    }
+    
+    public void verplaatsObject(Tegel naar){
+        naar.setSpelObject(mijnObject);
+        setSpelObject(new Gras());        
     }
 }
