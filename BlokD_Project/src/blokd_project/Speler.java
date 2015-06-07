@@ -3,6 +3,7 @@ package blokd_project;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class Speler extends SpelObject {
@@ -62,7 +63,7 @@ public class Speler extends SpelObject {
         }
         if ((stuk instanceof Bazooka)) {
             ammo++;
-          //  h.writeLabel("Ammo: " + getAmmo());
+            // .setText("Ammo: " + getAmmo());
         }
         if ((stuk instanceof Helper)) {
             //future maze algo h.findpath(); or somesnazz
@@ -71,7 +72,7 @@ public class Speler extends SpelObject {
             stuk.pakObject();
             JOptionPane.showMessageDialog(null, "You win!!");
         }
-        
+
     }
 
     public void vuurBazooka(int dir) {
@@ -79,7 +80,7 @@ public class Speler extends SpelObject {
         SpelObject stuk;
         switch (dir) {
             case KeyEvent.VK_SPACE:
-                naar = getTile().getEast();
+                //direction ++ loop of code, unsure how.
                 System.out.println("boom");
                 break;
         }
@@ -95,5 +96,4 @@ public class Speler extends SpelObject {
     public Image getImage() {
         return playerImage;
     }
-
 }

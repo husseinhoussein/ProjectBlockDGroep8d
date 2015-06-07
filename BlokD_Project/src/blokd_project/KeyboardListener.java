@@ -8,10 +8,12 @@ public class KeyboardListener extends KeyAdapter {
 
     private Speler p;
     private JLabel label;
+    private JLabel label2;
 
-    public KeyboardListener(Speler p, JLabel label) {
+    public KeyboardListener(Speler p, JLabel label, JLabel label2) {
         this.p = p;
         this.label = label;
+        this.label2 = label2;
     }
 
     @Override
@@ -19,6 +21,7 @@ public class KeyboardListener extends KeyAdapter {
         p.beweeg(e.getKeyCode());
         
         this.label.setText("Aantal stappen: " + p.getSteps());
+        this.label2.setText("Ammo: " + p.getAmmo());
     }
 
     @Override
