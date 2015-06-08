@@ -31,12 +31,14 @@ public class Doolhof {
     private JPanel panelWest;
     private JPanel panelCornerNorth;
     private JPanel panelHints;
+    private Speler p = new Speler();
 
     public Doolhof() {
-        
-        steps = new JLabel("Aantal stappen: 0" );
-        Veld veld = new Veld(steps);
-        
+
+        steps = new JLabel("Aantal stappen: 0");
+        ammoL = new JLabel("Ammo:");
+        Veld veld = new Veld(steps, ammoL);
+
         JFrame frame = new JFrame();
         frame.setTitle("Maze Game");
         frame.add(veld);
@@ -46,12 +48,11 @@ public class Doolhof {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel hintsL = new JLabel("Hints: " + "Beweeg met de pijltjes toetsen");
-        ammoL = new JLabel("Ammo: 0");
         currentLevelL = new JLabel("Level: " + level);
 
         start = new JButton("Start");
         reset = new JButton("Reset");
-        
+
         ActionListener listener = new ClickListener(veld);
         reset.addActionListener(listener);
 
@@ -87,7 +88,7 @@ public class Doolhof {
         panelHints.setPreferredSize(new Dimension(FRAME_WIDTH - 160, 40));
 
     }
-    
+
     private void mazeStart() {
         //enable speler om spelfuncties te gebruiken (te bewegen etc)
     }
@@ -95,5 +96,4 @@ public class Doolhof {
     private void mazeReset() {
         //regenerate level
     }
-
 }

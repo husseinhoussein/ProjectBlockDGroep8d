@@ -26,12 +26,12 @@ public class Veld extends JPanel implements ActionListener {
     private Speler p;
 
     //private Veld v;
-    public Veld(JLabel label) {
+    public Veld(JLabel label, JLabel label2) {
 
         m = new Map();
         p = new Speler();
 
-        addKeyListener(new KeyboardListener(p, label));
+        addKeyListener(new KeyboardListener(p, label, label2));
         setFocusable(true);
         timer = new Timer(25, this);
         timer.start();
