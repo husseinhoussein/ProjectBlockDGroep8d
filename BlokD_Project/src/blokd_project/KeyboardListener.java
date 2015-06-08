@@ -19,7 +19,8 @@ public class KeyboardListener extends KeyAdapter {
     @Override
     public void keyPressed(KeyEvent e) {
         p.beweeg(e.getKeyCode());
-        
+//        p.vuurBazooka(e.getKeyCode());
+
         this.label.setText("Aantal stappen: " + p.getSteps());
         this.label2.setText("Ammo: " + p.getAmmo());
     }

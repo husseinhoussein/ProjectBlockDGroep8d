@@ -13,6 +13,8 @@ public class Speler extends SpelObject {
     private String playerPath = "player.png";
     private int steps;
     private int ammo;
+    boolean direction = false;
+    boolean playerState = false;
 
     public Speler() {
         ImageIcon img = new ImageIcon(getImagePath(playerPath));
@@ -34,6 +36,7 @@ public class Speler extends SpelObject {
     public void beweeg(int dir) {
         Tegel naar = null;
         SpelObject stuk;
+
         switch (dir) {
             case KeyEvent.VK_UP:
                 naar = getTile().getNorth();
@@ -47,13 +50,22 @@ public class Speler extends SpelObject {
             case KeyEvent.VK_LEFT:
                 naar = getTile().getWest();
                 break;
+
+            case KeyEvent.VK_SPACE:
+                if (ammo != 0) {
+                    playerState = true;
+                }
+                break;
+
         }
+
         stuk = naar.getMijnObject();
         if (!(stuk instanceof Muur)) {
             if (stuk != null) {
                 stuk.pakObject();
                 steps++;
             }
+
             getTile().verplaatsObject(naar);
         }
         if ((stuk instanceof Valsspeler)) {
@@ -61,6 +73,7 @@ public class Speler extends SpelObject {
                 steps--;
             }
         }
+
         if ((stuk instanceof Bazooka)) {
             ammo++;
             // .setText("Ammo: " + getAmmo());
@@ -68,28 +81,23 @@ public class Speler extends SpelObject {
         if ((stuk instanceof Helper)) {
             //future maze algo h.findpath(); or somesnazz
         }
+
         if ((stuk instanceof Vriend)) {
             stuk.pakObject();
-            JOptionPane.showMessageDialog(null, "You win!!");
+              int result = JOptionPane.showConfirmDialog(null, "You win!!", "Titus Maximus?", JOptionPane.YES_NO_OPTION);
+              System.out.println(result);
         }
 
-    }
-
-    public void vuurBazooka(int dir) {
-        Tegel naar = null;
-        SpelObject stuk;
-        switch (dir) {
-            case KeyEvent.VK_SPACE:
-                //direction ++ loop of code, unsure how.
-                System.out.println("boom");
-                break;
-        }
-        stuk = naar.getMijnObject();
         if ((stuk instanceof Muur)) {
-            stuk.pakObject();
+            if (playerState == true) {
+                if (direction = true) {
+                    stuk.pakObject();
+                    getTile().verplaatsObject(naar);
+                    playerState = false;
+                    ammo--;
+                }
+            }
         }
-        getTile().verwijderObject(naar);
-        ammo--;
     }
 
     @Override

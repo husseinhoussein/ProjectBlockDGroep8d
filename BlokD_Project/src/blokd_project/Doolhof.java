@@ -36,7 +36,7 @@ public class Doolhof {
     public Doolhof() {
 
         steps = new JLabel("Aantal stappen: 0");
-        ammoL = new JLabel("Ammo:");
+        ammoL = new JLabel("Ammo: 0");
         Veld veld = new Veld(steps, ammoL);
 
         JFrame frame = new JFrame();

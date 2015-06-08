@@ -74,8 +74,21 @@ public class Veld extends JPanel implements ActionListener {
         }
     }
 
+//    public void findObject() {
+//        for (int i = 0; i < N; i++) {
+//            for (int j = 0; j < N; j++) {
+//              
+//                switch () {
+//                    case doolhof[i][j].setNorth(doolhof[i][j - 1]):
+//                    
+//                }
+//            }
+//        }
+//    }
+
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g
+    ) {
         super.paintComponent(g);
 
         drawItems((Graphics) g);

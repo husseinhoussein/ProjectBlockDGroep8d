@@ -10,8 +10,32 @@ public class Tegel {
     private SpelObject mijnObject = null;
 
     private Tegel north;
+
+    public void setPositieY(int positieY) {
+        this.positieY = positieY;
+    }
+
+    public void setPositieX(int positieX) {
+        this.positieX = positieX;
+    }
     private Tegel east;
     private Tegel south;
+
+    public void setNorth(Tegel north) {
+        this.north = north;
+    }
+
+    public void setEast(Tegel east) {
+        this.east = east;
+    }
+
+    public void setSouth(Tegel south) {
+        this.south = south;
+    }
+
+    public void setWest(Tegel west) {
+        this.west = west;
+    }
     private Tegel west;
 
     public int getPositieX() {
@@ -50,8 +74,8 @@ public class Tegel {
         west = w;
 
     }
-
-    public SpelObject getMijnObject() {
+    
+      public SpelObject getMijnObject() {
         return mijnObject;
     }
 
