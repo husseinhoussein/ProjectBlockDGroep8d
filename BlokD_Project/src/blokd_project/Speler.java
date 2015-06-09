@@ -15,6 +15,7 @@ public class Speler extends SpelObject {
     private int ammo;
     boolean direction = false;
     boolean playerState = false;
+    private Map m;
 
     public Speler() {
         ImageIcon img = new ImageIcon(getImagePath(playerPath));
@@ -79,13 +80,24 @@ public class Speler extends SpelObject {
             // .setText("Ammo: " + getAmmo());
         }
         if ((stuk instanceof Helper)) {
-            //future maze algo h.findpath(); or somesnazz
+//            h=new Helper();
+//            h.kortsteRoute(h.getTile(),h.pad );
         }
 
         if ((stuk instanceof Vriend)) {
             stuk.pakObject();
-              int result = JOptionPane.showConfirmDialog(null, "You win!!", "Titus Maximus?", JOptionPane.YES_NO_OPTION);
-              System.out.println(result);
+            int result = JOptionPane.showConfirmDialog(null, "Next Level??", "You win!!", JOptionPane.YES_NO_OPTION);
+//              System.out.println(result);
+            if (result == 0) {
+                m = new Map();
+                m.levelSwitch();
+                
+                Doolhof h = new Doolhof();
+                h.refreshFrame();
+//                  h.mazeStart();
+            } else if (result == 1) {
+                System.out.println("something");
+            }
         }
 
         if ((stuk instanceof Muur)) {

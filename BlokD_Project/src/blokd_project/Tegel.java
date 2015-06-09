@@ -11,6 +11,13 @@ public class Tegel {
 
     private Tegel north;
 
+    public Tegel(Tegel north, Tegel east, Tegel south, Tegel west) {
+        this.north = north;
+        this.east = east;
+        this.south = south;
+        this.west = west;
+    }
+
     public void setPositieY(int positieY) {
         this.positieY = positieY;
     }
@@ -72,6 +79,16 @@ public class Tegel {
         east = e;
         south = s;
         west = w;
+
+    }
+    protected Tegel getNeighbours(Tegel n, Tegel e, Tegel s, Tegel w) {
+     
+        e = getEast();
+        w = getWest();
+        n = getNorth();
+        s = getSouth();
+        
+        return new Tegel(n, e, s, w);
 
     }
     

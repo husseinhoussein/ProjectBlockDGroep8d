@@ -9,6 +9,24 @@ public class Map {
 
     private Scanner m;
     private String map[] = new String[25];
+    int index = 0;
+    
+  String[] levels = {"maze.txt", "maze_1.txt", "maze_2.txt"};//new String[3];
+  
+
+  
+    public void levelSwitch()
+    {
+        index ++;
+    }
+
+//    public String getMaze() {
+//        return maze;
+//    }
+//
+//    public void setMaze(String maze) {
+//        this.maze = maze;
+//    }
 
     public Map() {
 
@@ -29,7 +47,9 @@ public class Map {
 
     public void openFile() {
         try {
-            m = new Scanner(new File(getPath("MazeData/maze.txt")));
+             m = new Scanner(new File(getPath("MazeData/" + levels[index])));
+             levelSwitch();
+             System.out.println(index);
         } catch (Exception e) {
             System.out.println("error loading map");
         }
@@ -47,3 +67,15 @@ public class Map {
         m.close();
     }
 }
+//            switch(levels){
+//                case MAZE1:
+//                   m = new Scanner(new File(getPath("MazeData/" + Levels.MAZE1)));
+//                    break;
+//                case MAZE2:
+//                   m = new Scanner(new File(getPath("MazeData/" + Levels.MAZE2)));
+//                    break;
+//                case MAZE3:
+//                   m = new Scanner(new File(getPath("MazeData/" + Levels.MAZE3)));
+//                    break;
+                    
+//            }
