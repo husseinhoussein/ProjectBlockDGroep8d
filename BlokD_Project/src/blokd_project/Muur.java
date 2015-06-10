@@ -52,4 +52,8 @@ public class Muur extends SpelObject {
     public Image getImage() {
         return wallImage;
     }
+
+    @Override
+    public void pakObject(Speler speler) {
+    }
 }

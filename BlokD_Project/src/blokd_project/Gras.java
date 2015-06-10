@@ -18,4 +18,8 @@ public class Gras extends SpelObject {
         return grassImage;
     }
 
+    @Override
+    public void pakObject(Speler speler) {
+    }
+
 }

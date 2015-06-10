@@ -1,6 +1,6 @@
-
 package blokd_project;
 
+import java.awt.event.KeyEvent;
 import java.util.HashSet;
 
 public class Tegel {
@@ -8,6 +8,8 @@ public class Tegel {
     private int positieY = 0;
     private int positieX = 0;
     private SpelObject mijnObject = null;
+    private boolean staatOpPad = false;
+   
 
     private Tegel north;
 
@@ -16,6 +18,14 @@ public class Tegel {
         this.east = east;
         this.south = south;
         this.west = west;
+    }
+
+    public void setPad() {
+        staatOpPad = true;
+    }
+
+    public boolean getPad() {
+        return staatOpPad;
     }
 
     public void setPositieY(int positieY) {
@@ -81,19 +91,41 @@ public class Tegel {
         west = w;
 
     }
+
     protected Tegel getNeighbours(Tegel n, Tegel e, Tegel s, Tegel w) {
-     
+
         e = getEast();
         w = getWest();
         n = getNorth();
         s = getSouth();
-        
+
         return new Tegel(n, e, s, w);
 
     }
-    
-      public SpelObject getMijnObject() {
+
+    public SpelObject getMijnObject() {
         return mijnObject;
+    }
+
+    protected void getBuur(int dir) {
+        Tegel naar = null;
+        SpelObject stuk = null;
+
+        switch (dir) {
+            case KeyEvent.VK_UP:
+                naar = mijnObject.getTile().getNorth();
+                break;
+            case KeyEvent.VK_RIGHT:
+                naar = mijnObject.getTile().getEast();
+                break;
+            case KeyEvent.VK_DOWN:
+                naar = mijnObject.getTile().getSouth();
+                break;
+            case KeyEvent.VK_LEFT:
+                naar = mijnObject.getTile().getWest();
+                break;
+            default:
+        }
     }
 
     protected void setSpelObject(SpelObject s) {
@@ -103,11 +135,11 @@ public class Tegel {
 
     protected void verwijderObject(Tegel weg) {
         weg.setSpelObject(mijnObject);
-        setSpelObject(new Gras());   
+        setSpelObject(new Gras());
     }
-    
-    public void verplaatsObject(Tegel naar){
+
+    public void verplaatsObject(Tegel naar) {
         naar.setSpelObject(mijnObject);
-        setSpelObject(new Gras());        
+        setSpelObject(new Gras());
     }
 }

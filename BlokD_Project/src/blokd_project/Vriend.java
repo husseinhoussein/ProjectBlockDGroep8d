@@ -3,6 +3,7 @@ package blokd_project;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Vriend extends SpelObject {
@@ -41,4 +42,27 @@ public class Vriend extends SpelObject {
         return friendImage;
     }
 
+    @Override
+    public void pakObject(Speler speler) {
+        Tegel naar = null;
+        SpelObject stuk = null;
+        int dir = 0;
+        naar.getBuur(dir);
+     if ((stuk instanceof Vriend)) {
+            stuk.pakObject(speler);
+            int result = JOptionPane.showConfirmDialog(null, "Next Level??", "You win!!", JOptionPane.YES_NO_OPTION);
+//              System.out.println(result);
+            if (result == 0) {
+//                m = new Map(null);
+//                m.levelSwitch();
+
+                Doolhof h = new Doolhof();
+                h.refreshFrame();
+//                  h.mazeStart();
+            } else if (result == 1) {
+                System.out.println("something");
+            }
+     }
+
+}
 }

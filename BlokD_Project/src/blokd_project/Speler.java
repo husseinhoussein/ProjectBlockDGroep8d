@@ -3,8 +3,6 @@ package blokd_project;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 public class Speler extends SpelObject {
 
@@ -13,9 +11,9 @@ public class Speler extends SpelObject {
     private String playerPath = "player.png";
     private int steps;
     private int ammo;
-    boolean direction = false;
-    boolean playerState = false;
+    boolean magSchieten = false;
     private Map m;
+    private Helper h;
 
     public Speler() {
         ImageIcon img = new ImageIcon(getImagePath(playerPath));
@@ -36,8 +34,9 @@ public class Speler extends SpelObject {
 
     public void beweeg(int dir) {
         Tegel naar = null;
-        SpelObject stuk;
+        SpelObject stuk = null;
 
+        // naar.getBuur(dir);
         switch (dir) {
             case KeyEvent.VK_UP:
                 naar = getTile().getNorth();
@@ -51,69 +50,74 @@ public class Speler extends SpelObject {
             case KeyEvent.VK_LEFT:
                 naar = getTile().getWest();
                 break;
-
+            default:
             case KeyEvent.VK_SPACE:
                 if (ammo != 0) {
-                    playerState = true;
+                    magSchieten = true;
                 }
                 break;
-
         }
 
-        stuk = naar.getMijnObject();
-        if (!(stuk instanceof Muur)) {
+        if (naar != null && !(stuk instanceof Muur)) {
+            stuk = naar.getMijnObject();
             if (stuk != null) {
-                stuk.pakObject();
+                stuk.pakObject(this);
+                getTile().verplaatsObject(naar);
                 steps++;
-            }
 
-            getTile().verplaatsObject(naar);
-        }
-        if ((stuk instanceof Valsspeler)) {
-            for (int i = 0; i <= 10; i++) {
-                steps--;
-            }
-        }
-
-        if ((stuk instanceof Bazooka)) {
-            ammo++;
-            // .setText("Ammo: " + getAmmo());
-        }
-        if ((stuk instanceof Helper)) {
-//            h=new Helper();
-//            h.kortsteRoute(h.getTile(),h.pad );
-        }
-
-        if ((stuk instanceof Vriend)) {
-            stuk.pakObject();
-            int result = JOptionPane.showConfirmDialog(null, "Next Level??", "You win!!", JOptionPane.YES_NO_OPTION);
-//              System.out.println(result);
-            if (result == 0) {
-                m = new Map();
-                m.levelSwitch();
-                
-                Doolhof h = new Doolhof();
-                h.refreshFrame();
-//                  h.mazeStart();
-            } else if (result == 1) {
-                System.out.println("something");
-            }
-        }
-
-        if ((stuk instanceof Muur)) {
-            if (playerState == true) {
-                if (direction = true) {
-                    stuk.pakObject();
-                    getTile().verplaatsObject(naar);
-                    playerState = false;
-                    ammo--;
-                }
             }
         }
     }
 
+//        if ((stuk instanceof Muur)) {
+//            if (magSchieten == true) {
+//                stuk.pakObject(this);
+//                getTile().verplaatsObject(naar);
+//                magSchieten = false;
+//                ammo--;
+//            }
+//        }
+//}
     @Override
     public Image getImage() {
         return playerImage;
+    }
+
+    void verlaagAmmo() {
+        ammo--;
+    }
+
+    void verlaagStappen() {
+        steps = steps - 10;
+    }
+
+    void verhoogAmmo() {
+        ammo++;
+    }
+
+    void vuurBazooka(int dir) {
+        if (ammo > 0) {
+            Tegel naar = null;
+            SpelObject stuk = null;
+            stuk = naar.getMijnObject();
+            while (!(stuk instanceof Muur)) {
+
+                // naar.getBuur(dir);
+                switch (dir) {
+
+                    case KeyEvent.VK_SPACE:
+                        if (ammo != 0) {
+                            magSchieten = true;
+                        }
+                        break;
+                    default:
+                }
+            }
+            stuk.pakObject(this);
+        }
+    }
+
+    @Override
+    public void pakObject(Speler speler) {
     }
 }

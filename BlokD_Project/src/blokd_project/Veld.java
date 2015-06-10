@@ -24,11 +24,12 @@ public class Veld extends JPanel implements ActionListener {
 
     private Map m;
     private Speler p;
+    private Helper h;
 
     //private Veld v;
     public Veld(JLabel label, JLabel label2) {
 
-        m = new Map();
+        m = new Map(null);
         p = new Speler();
 
         addKeyListener(new KeyboardListener(p, label, label2));
@@ -98,9 +99,12 @@ public class Veld extends JPanel implements ActionListener {
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-
-                gr.drawImage(doolhof[i][j].getMijnObject().getImage(), i * 25, j * 25, 25, 25, null);
-
+                if(doolhof[i][j].getMijnObject() instanceof Gras && doolhof[i][j].getPad()){
+               gr.drawImage(h.getImage(), i * 25, j * 25, this);
+                }
+                else{
+                 gr.drawImage(doolhof[i][j].getMijnObject().getImage(), i * 25, j * 25, 25, 25, null);
+                }
             }
         }
     }

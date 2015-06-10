@@ -22,4 +22,9 @@ public class Bazooka extends SpelObject {
         
     }
 
+    @Override
+    public void pakObject(Speler speler) {
+        speler.verhoogAmmo();
+    }
+
 }

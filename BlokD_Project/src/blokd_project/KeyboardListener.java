@@ -9,6 +9,7 @@ public class KeyboardListener extends KeyAdapter {
     private Speler p;
     private JLabel label;
     private JLabel label2;
+    private int laatsteRichting = KeyEvent.VK_UP;
 
     public KeyboardListener(Speler p, JLabel label, JLabel label2) {
         this.p = p;
@@ -18,11 +19,17 @@ public class KeyboardListener extends KeyAdapter {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        p.beweeg(e.getKeyCode());
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            p.vuurBazooka(laatsteRichting);
+        } else if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            p.beweeg(e.getKeyCode());
+            laatsteRichting = e.getKeyCode();
+            
 //        p.vuurBazooka(e.getKeyCode());
 
-        this.label.setText("Aantal stappen: " + p.getSteps());
-        this.label2.setText("Ammo: " + p.getAmmo());
+            this.label.setText("Aantal stappen: " + p.getSteps());
+            this.label2.setText("Ammo: " + p.getAmmo());
+        }
     }
 
     @Override

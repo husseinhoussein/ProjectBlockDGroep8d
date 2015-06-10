@@ -27,4 +27,9 @@ public class Valsspeler extends SpelObject {
     public Image getImage() {
         return cheaterImage;
     }
+
+    @Override
+    public void pakObject(Speler speler) {
+        speler.verlaagStappen();    }
+    
 }

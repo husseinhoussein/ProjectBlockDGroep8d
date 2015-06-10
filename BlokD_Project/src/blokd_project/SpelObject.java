@@ -33,8 +33,6 @@ public abstract class SpelObject {
 //    private void tekenObject() {
 //  //      this.muur.repaint();
 //    }
-    public void pakObject() {
-        //code die oa de speler een ander spelobject laat meenemen/gebruiken/activeren ofzo
-    }
+    public abstract void pakObject(Speler speler) ;
 
 }

@@ -1,9 +1,12 @@
 package blokd_project;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class Map {
 
@@ -28,8 +31,9 @@ public class Map {
 //        this.maze = maze;
 //    }
 
-    public Map() {
+    public Map(JLabel label ) {
 
+     
         openFile();
         readFile();
         closeFile();
@@ -49,7 +53,6 @@ public class Map {
         try {
              m = new Scanner(new File(getPath("MazeData/" + levels[index])));
              levelSwitch();
-             System.out.println(index);
         } catch (Exception e) {
             System.out.println("error loading map");
         }

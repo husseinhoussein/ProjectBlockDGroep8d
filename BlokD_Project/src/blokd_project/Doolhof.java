@@ -3,6 +3,7 @@ package blokd_project;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import javax.swing.BoxLayout;
@@ -32,11 +33,14 @@ public class Doolhof {
     private Speler p = new Speler();
     private JFrame frame;
     private Veld veld;
+    private Map map;
 
     public static void main(String[] args) {
         new Doolhof();
 
     }
+    private JButton previousLevel;
+    private JButton nextLevel;
 
     public void refreshFrame() {
         SwingUtilities.updateComponentTreeUI(frame);
@@ -50,11 +54,12 @@ public class Doolhof {
     private void createDoolhof() {
         steps = new JLabel("Aantal stappen: 0");
         ammoL = new JLabel("Ammo: 0");
-        Veld veld = new Veld(steps, ammoL);
+        veld = new Veld(steps, ammoL);
+        map = new Map(currentLevelL);
 //
         frame = new JFrame();
         frame.setTitle("Maze Game");
-        frame.add(veld).repaint();
+        frame.add(veld);
         frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -64,27 +69,52 @@ public class Doolhof {
         currentLevelL = new JLabel("Level: ");
         start = new JButton("Start");
         reset = new JButton("Reset");
+        previousLevel = new JButton("<---");
+        nextLevel = new JButton("--->");
         ActionListener listener = new ClickListener(veld);
+
         reset.addActionListener(listener);
+        previousLevel.addActionListener(new ActionListener() {
+            private Map m;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                m = new Map(null);
+                m.levelSwitch();
+                refreshFrame();
+            }
+
+        });
+        nextLevel.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });
+
         panelNorth = new JPanel(new FlowLayout(FlowLayout.LEFT));
         panelSouth = new JPanel(new FlowLayout(FlowLayout.LEFT));
         panelWest = new JPanel(new FlowLayout(FlowLayout.LEFT));
         panelWest.setLayout(new BoxLayout(panelWest, BoxLayout.PAGE_AXIS));
         panelCornerNorth = new JPanel();
         panelHints = new JPanel();
-//
+
         frame.add(panelNorth, BorderLayout.NORTH);
         frame.add(panelWest, BorderLayout.WEST);
         frame.add(panelSouth, BorderLayout.SOUTH);
-//
+
         panelNorth.add(panelCornerNorth, BorderLayout.WEST);
         panelNorth.add(panelHints, BorderLayout.EAST);
         panelCornerNorth.add(steps);
         panelHints.add(hintsL);
-//
+
         panelSouth.add(start);
         panelSouth.add(reset);
-//
+        panelSouth.add(previousLevel);
+        panelSouth.add(nextLevel);
+
         panelWest.add(currentLevelL, BorderLayout.WEST);
         panelWest.add(ammoL, BorderLayout.WEST);
 
