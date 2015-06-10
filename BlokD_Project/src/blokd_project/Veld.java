@@ -44,8 +44,11 @@ public class Veld extends JPanel implements ActionListener {
             for (int j = 0; j < N; j++) {
                 doolhof[i][j] = new Tegel(i, j);
                 switch (m.getMap(i, j)) {
+                    case "x":
+                        doolhof[i][j].setSpelObject(new Muur(false));
+                        break;
                     case "w":
-                        doolhof[i][j].setSpelObject(new Muur());
+                        doolhof[i][j].setSpelObject(new Muur(true));
                         break;
                     case "g":
                         doolhof[i][j].setSpelObject(new Gras());

@@ -114,14 +114,12 @@ public class Speler extends SpelObject {
         if (ammo > 0) {
             stuk = naar.getMijnObject();
             while (!(stuk instanceof Muur)) {
-                System.out.println("does it even go this far?");
-                //deathloop, unsure how to solve
+                
             }
             stuk.pakObject(this);
-            getTile().verplaatsObject(naar);
             verlaagAmmo();
-
         }
+
     }
 
     @Override

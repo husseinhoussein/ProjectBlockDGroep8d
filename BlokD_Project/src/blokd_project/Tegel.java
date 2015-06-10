@@ -9,7 +9,6 @@ public class Tegel {
     private int positieX = 0;
     private SpelObject mijnObject = null;
     private boolean staatOpPad = false;
-   
 
     private Tegel north;
 
@@ -111,21 +110,22 @@ public class Tegel {
 //        Tegel naar = null;
 //        SpelObject stuk = null;
 //
-////        switch (dir) {
-////            case KeyEvent.VK_UP:
+//        switch (dir) {
+//            case KeyEvent.VK_UP:
 //                naar = mijnObject.getTile().getNorth();
-////                break;
-////            case KeyEvent.VK_RIGHT:
+//                break;
+//            case KeyEvent.VK_RIGHT:
 //                naar = mijnObject.getTile().getEast();
-////                break;
-////            case KeyEvent.VK_DOWN:
+//                break;
+//            case KeyEvent.VK_DOWN:
 //                naar = mijnObject.getTile().getSouth();
-////                break;
-////            case KeyEvent.VK_LEFT:
+//                break;
+//            case KeyEvent.VK_LEFT:
 //                naar = mijnObject.getTile().getWest();
-////                break;
-////            default:
-////        }
+//                break;
+//            default:
+//
+//        }
 //    }
 
     protected void setSpelObject(SpelObject s) {
@@ -133,10 +133,13 @@ public class Tegel {
         s.setTile(this);
     }
 
-    protected void verwijderObject(Tegel weg) {
-        weg.setSpelObject(mijnObject);
+    protected void verwijderObject() {
         setSpelObject(new Gras());
     }
+//    protected void verwijderObject(Tegel weg) {
+//        weg.setSpelObject(mijnObject);
+//        setSpelObject(new Gras());
+//    }
 
     public void verplaatsObject(Tegel naar) {
         naar.setSpelObject(mijnObject);
