@@ -51,15 +51,10 @@ public class Speler extends SpelObject {
                 naar = getTile().getWest();
                 break;
             default:
-            case KeyEvent.VK_SPACE:
-                if (ammo != 0) {
-                    magSchieten = true;
-                }
-                break;
-        }
 
-        if (naar != null && !(stuk instanceof Muur)) {
-            stuk = naar.getMijnObject();
+        }
+        stuk = naar.getMijnObject();
+        if (!(stuk instanceof Muur)) {
             if (stuk != null) {
                 stuk.pakObject(this);
                 getTile().verplaatsObject(naar);
@@ -96,28 +91,41 @@ public class Speler extends SpelObject {
     }
 
     void vuurBazooka(int dir) {
+        Tegel naar = null;
+        SpelObject stuk = null;
+
+        switch (dir) {
+            case KeyEvent.VK_UP:
+                naar = getTile().getNorth();
+                break;
+            case KeyEvent.VK_RIGHT:
+                naar = getTile().getEast();
+                break;
+            case KeyEvent.VK_DOWN:
+                naar = getTile().getSouth();
+                break;
+            case KeyEvent.VK_LEFT:
+                naar = getTile().getWest();
+                break;
+            default:
+
+        }
+
         if (ammo > 0) {
-            Tegel naar = null;
-            SpelObject stuk = null;
             stuk = naar.getMijnObject();
             while (!(stuk instanceof Muur)) {
-
-                // naar.getBuur(dir);
-                switch (dir) {
-
-                    case KeyEvent.VK_SPACE:
-                        if (ammo != 0) {
-                            magSchieten = true;
-                        }
-                        break;
-                    default:
-                }
+                System.out.println("does it even go this far?");
+                //deathloop, unsure how to solve
             }
             stuk.pakObject(this);
+            getTile().verplaatsObject(naar);
+            verlaagAmmo();
+
         }
     }
 
     @Override
     public void pakObject(Speler speler) {
+
     }
 }

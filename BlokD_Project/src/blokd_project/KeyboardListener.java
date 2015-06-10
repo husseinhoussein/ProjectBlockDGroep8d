@@ -19,17 +19,17 @@ public class KeyboardListener extends KeyAdapter {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            p.vuurBazooka(laatsteRichting);
-        } else if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_RIGHT) {
             p.beweeg(e.getKeyCode());
             laatsteRichting = e.getKeyCode();
-            
-//        p.vuurBazooka(e.getKeyCode());
-
-            this.label.setText("Aantal stappen: " + p.getSteps());
-            this.label2.setText("Ammo: " + p.getAmmo());
+        } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            p.vuurBazooka(laatsteRichting);
+//            System.out.println(laatsteRichting);
         }
+
+//        p.vuurBazooka(e.getKeyCode());
+        this.label.setText("Aantal stappen: " + p.getSteps());
+        this.label2.setText("Ammo: " + p.getAmmo());
     }
 
     @Override

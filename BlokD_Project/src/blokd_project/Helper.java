@@ -20,20 +20,30 @@ public class Helper extends SpelObject {
 
     protected void kortsteRoute(Tegel tegel, ArrayList<Tegel> pad) {
         if (!(tegel.getMijnObject() instanceof Muur) && !(pad.contains(tegel))) {
+            System.out.println("not sure if add");
             pad.add(tegel);
             if (tegel.getMijnObject() instanceof Vriend) {
+                System.out.println("not sure if instanceof");
                 if (pad.size() < padLengte) {
+                    System.out.println("not sure if length comparison, excelsior!!!");
                     kortstePad = (ArrayList<Tegel>) pad.clone();
                     padLengte = pad.size();
+
                 }
             } else {
-                kortsteRoute(getTile().getNorth(), pad);
-                kortsteRoute(getTile().getWest(), pad);
-                kortsteRoute(getTile().getEast(), pad);
-                kortsteRoute(getTile().getSouth(), pad);
-
+                try {
+                    System.out.println("prolly boomboom");
+                    //deathloop unsure how to solve
+                    kortsteRoute(getTile().getNorth(), pad);
+                    kortsteRoute(getTile().getEast(), pad);
+                    kortsteRoute(getTile().getSouth(), pad);
+                    kortsteRoute(getTile().getWest(), pad);
+                } catch (StackOverflowError e) {
+                    System.err.println("ouch!");
+                }
             }
         }
+
         pad.remove(tegel);
     }
 
@@ -44,9 +54,9 @@ public class Helper extends SpelObject {
 
     @Override
     public void pakObject(Speler speler) {
-        kortsteRoute(speler.getTile(), new ArrayList<Tegel>());
-        for (Tegel tegel : pad) {
-            tegel.setPad();
-        }
+//        kortsteRoute(speler.getTile(), new ArrayList<Tegel>());
+//        for (Tegel tegel : pad) {
+//            tegel.setPad();
+//        }
     }
 }

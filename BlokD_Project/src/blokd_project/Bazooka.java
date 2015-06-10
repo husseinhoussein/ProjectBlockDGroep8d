@@ -18,8 +18,8 @@ public class Bazooka extends SpelObject {
         return bazookaImage;
     }
 
-    public void vernietig() {
-        
+    public void vernietig(Speler speler) {
+  
     }
 
     @Override

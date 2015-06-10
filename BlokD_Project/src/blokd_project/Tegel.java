@@ -107,26 +107,26 @@ public class Tegel {
         return mijnObject;
     }
 
-    protected void getBuur(int dir) {
-        Tegel naar = null;
-        SpelObject stuk = null;
-
-        switch (dir) {
-            case KeyEvent.VK_UP:
-                naar = mijnObject.getTile().getNorth();
-                break;
-            case KeyEvent.VK_RIGHT:
-                naar = mijnObject.getTile().getEast();
-                break;
-            case KeyEvent.VK_DOWN:
-                naar = mijnObject.getTile().getSouth();
-                break;
-            case KeyEvent.VK_LEFT:
-                naar = mijnObject.getTile().getWest();
-                break;
-            default:
-        }
-    }
+//    protected void getBuur(int dir) {
+//        Tegel naar = null;
+//        SpelObject stuk = null;
+//
+////        switch (dir) {
+////            case KeyEvent.VK_UP:
+//                naar = mijnObject.getTile().getNorth();
+////                break;
+////            case KeyEvent.VK_RIGHT:
+//                naar = mijnObject.getTile().getEast();
+////                break;
+////            case KeyEvent.VK_DOWN:
+//                naar = mijnObject.getTile().getSouth();
+////                break;
+////            case KeyEvent.VK_LEFT:
+//                naar = mijnObject.getTile().getWest();
+////                break;
+////            default:
+////        }
+//    }
 
     protected void setSpelObject(SpelObject s) {
         mijnObject = s;

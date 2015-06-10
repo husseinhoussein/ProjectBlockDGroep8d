@@ -22,8 +22,6 @@ public class Vriend extends SpelObject {
         tileY = 1;
     }
 
-
-
     public int getTileX() {
         return tileX;
     }
@@ -44,25 +42,17 @@ public class Vriend extends SpelObject {
 
     @Override
     public void pakObject(Speler speler) {
-        Tegel naar = null;
-        SpelObject stuk = null;
-        int dir = 0;
-        naar.getBuur(dir);
-     if ((stuk instanceof Vriend)) {
-            stuk.pakObject(speler);
-            int result = JOptionPane.showConfirmDialog(null, "Next Level??", "You win!!", JOptionPane.YES_NO_OPTION);
+        int result = JOptionPane.showConfirmDialog(null, "Next Level??", "You win!!", JOptionPane.YES_NO_OPTION);
 //              System.out.println(result);
-            if (result == 0) {
+        if (result == 0) {
 //                m = new Map(null);
 //                m.levelSwitch();
 
-                Doolhof h = new Doolhof();
-                h.refreshFrame();
+            Doolhof h = new Doolhof();
+            h.refreshFrame();
 //                  h.mazeStart();
-            } else if (result == 1) {
-                System.out.println("something");
-            }
-     }
-
-}
+        } else if (result == 1) {
+            System.out.println("something");
+        }
+    }
 }

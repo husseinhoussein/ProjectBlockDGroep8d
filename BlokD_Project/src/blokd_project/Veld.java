@@ -100,7 +100,7 @@ public class Veld extends JPanel implements ActionListener {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if(doolhof[i][j].getMijnObject() instanceof Gras && doolhof[i][j].getPad()){
-               gr.drawImage(h.getImage(), i * 25, j * 25, this);
+               gr.drawImage(h.getImage(), i * 25, j * 25, 25, 25, null);
                 }
                 else{
                  gr.drawImage(doolhof[i][j].getMijnObject().getImage(), i * 25, j * 25, 25, 25, null);
