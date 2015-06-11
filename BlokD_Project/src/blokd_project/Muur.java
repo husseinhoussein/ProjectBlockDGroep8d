@@ -60,8 +60,8 @@ public class Muur extends SpelObject {
     }
 
     @Override
-    public void pakObject(Speler speler) {
-        if (kanKapot == true) {
+        public void pakObject(Speler speler) {
+            if (kanKapot == true) {
             getTile().verwijderObject();
         }
     }

@@ -23,6 +23,7 @@ public class KeyboardListener extends KeyAdapter {
             p.beweeg(e.getKeyCode());
             laatsteRichting = e.getKeyCode();
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            
             p.vuurBazooka(laatsteRichting);
 //            System.out.println(laatsteRichting);
         }

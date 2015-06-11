@@ -20,6 +20,7 @@ public class Gras extends SpelObject {
 
     @Override
     public void pakObject(Speler speler) {
+        getTile().verwijderObject();
     }
 
 }

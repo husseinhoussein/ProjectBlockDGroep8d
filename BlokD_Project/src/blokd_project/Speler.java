@@ -57,10 +57,9 @@ public class Speler extends SpelObject {
         if (!(stuk instanceof Muur)) {
             if (stuk != null) {
                 stuk.pakObject(this);
-                getTile().verplaatsObject(naar);
-                steps++;
-
             }
+            getTile().verplaatsObject(naar);
+            steps++;
         }
     }
 
@@ -95,10 +94,12 @@ public class Speler extends SpelObject {
         SpelObject stuk = null;
 
         switch (dir) {
+
             case KeyEvent.VK_UP:
                 naar = getTile().getNorth();
                 break;
             case KeyEvent.VK_RIGHT:
+
                 naar = getTile().getEast();
                 break;
             case KeyEvent.VK_DOWN:
@@ -108,22 +109,51 @@ public class Speler extends SpelObject {
                 naar = getTile().getWest();
                 break;
             default:
-
         }
 
+//        if (ammo > 0) {
+//            stuk = naar.getMijnObject();
+//            if (dir == 38) {
+//                do{
+//                        getTile().getNorth();
+//                        stuk.pakObject(this);
+//                }
+//                while (!(stuk instanceof Muur));
+//            } else {
+//                stuk.pakObject(this);
+//            }
+//        }
+//    }
         if (ammo > 0) {
             stuk = naar.getMijnObject();
+
             while (!(stuk instanceof Muur)) {
-                
+                switch (dir) {
+                    case KeyEvent.VK_UP:
+                        naar = naar.getNorth();
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        naar = naar.getEast();
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        naar = naar.getSouth();
+                        break;
+                    case KeyEvent.VK_LEFT:
+                        naar = naar.getWest();
+                        break;
+                    default:
+                }
+                stuk = naar.getMijnObject();
             }
             stuk.pakObject(this);
             verlaagAmmo();
         }
-
     }
 
     @Override
-    public void pakObject(Speler speler) {
+    public void pakObject(Speler speler
+    ) {
 
     }
+
 }

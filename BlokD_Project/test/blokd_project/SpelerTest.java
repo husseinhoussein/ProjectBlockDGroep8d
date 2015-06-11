@@ -96,7 +96,19 @@ public class SpelerTest {
         // TODO review the generated test code and remove the default call to fail.
         //   fail("The test case is a prototype.");
     }
-
+    @Test
+    public void testRoutine(){
+        Tegel links = new Tegel(1, 1);
+        Tegel rechts =new Tegel(0,0);
+        Speler speler = new Speler();
+        links.setEast(rechts);
+        rechts.setWest(links);
+        links.setMijnObject(speler);
+        
+        speler.beweeg(KeyEvent.VK_RIGHT);
+        
+        assertEquals(rechts, speler.getTile());
+    }
     @Test
     public void testCase1() {
         Speler instance = new Speler();

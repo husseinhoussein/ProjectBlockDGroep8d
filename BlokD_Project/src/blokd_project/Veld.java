@@ -31,6 +31,7 @@ public class Veld extends JPanel implements ActionListener {
 
         m = new Map(null);
         p = new Speler();
+        h = new Helper();
 
         addKeyListener(new KeyboardListener(p, label, label2));
         setFocusable(true);
