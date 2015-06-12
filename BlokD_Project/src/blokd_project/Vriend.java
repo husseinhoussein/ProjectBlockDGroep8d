@@ -39,11 +39,12 @@ public class Vriend extends SpelObject {
     @Override
     public void pakObject(Speler speler) {
         int result = JOptionPane.showConfirmDialog(null, "Next Level??", "You win!!", JOptionPane.YES_NO_OPTION);
+        Doolhof h = new Doolhof();
         if (result == 0) {
-            Doolhof h = new Doolhof();
+            
             h.refreshFrame();
         } else if (result == 1) {
-            System.out.println("something");
+            h.exitGame();
         }
     }
 }

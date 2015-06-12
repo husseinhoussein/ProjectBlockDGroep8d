@@ -41,111 +41,37 @@ public class SpelerTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getAmmo method, of class Speler.
-     */
-    @Test
-    public void testGetAmmo() {
-        System.out.println("getAmmo");
-        Speler instance = new Speler();
-        int expResult = 0;
-        int result = instance.getAmmo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
-    /**
-     * Test of setAmmo method, of class Speler.
-     */
     @Test
-    public void testSetAmmo() {
-        System.out.println("setAmmo");
-        int ammo = 0;
-        Speler instance = new Speler();
-        instance.setAmmo(ammo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getSteps method, of class Speler.
-     */
-    @Test
-    public void testGetSteps() {
-        System.out.println("getSteps");
-        Speler instance = new Speler();
-        int expResult = 0;
-        int result = instance.getSteps();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of beweeg method, of class Speler.
-     */
-    @Test
-    public void testBeweeg() {
-        System.out.println("beweeg");
-        int dir = 0;
-        Speler instance = new Speler();
-        instance.beweeg(dir);
-        assertEquals(instance, this);
-
-        // TODO review the generated test code and remove the default call to fail.
-        //   fail("The test case is a prototype.");
-    }
-    @Test
-    public void testRoutine(){
+    public void testRoutine1() {
         Tegel links = new Tegel(1, 1);
-        Tegel rechts =new Tegel(0,0);
+        Tegel rechts = new Tegel(0, 0);
         Speler speler = new Speler();
         links.setEast(rechts);
         rechts.setWest(links);
         links.setMijnObject(speler);
-        
+
         speler.beweeg(KeyEvent.VK_RIGHT);
-        
+
         assertEquals(rechts, speler.getTile());
     }
+
     @Test
-    public void testCase1() {
-        Speler instance = new Speler();
-        int dir = 0;
-        Tegel naar = null;
-        SpelObject stuk;
-        instance.beweeg(dir);
-        try {
-            Robot robot = new Robot();
+    public void testRoutine2() {
+        Tegel links = new Tegel(1, 1);
+        Tegel rechts = new Tegel(0, 0);
+        Speler speler = new Speler();
+        Muur muur = new Muur(true);
+        links.setEast(rechts);
+        rechts.setWest(links);
+        links.setMijnObject(speler);
+        rechts.setMijnObject(muur);
 
-            stuk = naar.getMijnObject();
+        speler.beweeg(KeyEvent.VK_RIGHT);
 
-            robot.keyPress(KeyEvent.VK_UP);
-            robot.keyRelease(KeyEvent.VK_UP);
+        assertEquals(links, speler.getTile());
+        assertEquals(rechts, muur.getTile());
 
-            if (!(stuk instanceof Muur)) {
-                if (stuk != null) {
-                    assertNotNull("steps up", stuk);
-                }
-            }
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Test of getImage method, of class Speler.
-     */
-    @Test
-    public void testGetImage() {
-        System.out.println("getImage");
-        Speler instance = new Speler();
-        Image expResult = null;
-        Image result = instance.getImage();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
 }
