@@ -13,30 +13,23 @@ public class Veld extends JPanel implements ActionListener {
     private int x = 0;
     private int y = 0;
     private int N = 25;
-
-    Tegel[][] doolhof = new Tegel[N][N];
-
+    private Map m;
+    private Speler p;
+    private Helper h;
     private String message = "";
     private boolean win = false;
     private boolean kanKapot = false;
     private Font font = new Font("Serif", Font.BOLD, 48);
     public Timer timer;
+    Tegel[][] doolhof = new Tegel[N][N];
 
-    private Map m;
-    private Speler p;
-    private Helper h;
-
-    //private Veld v;
     public Veld(JLabel label, JLabel label2) {
-
         m = new Map(null);
         p = new Speler();
         h = new Helper();
 
         addKeyListener(new KeyboardListener(p, label, label2));
         setFocusable(true);
-        timer = new Timer(25, this);
-        timer.start();
         initTegel();
     }
 
@@ -44,6 +37,7 @@ public class Veld extends JPanel implements ActionListener {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 doolhof[i][j] = new Tegel(i, j);
+
                 switch (m.getMap(i, j)) {
                     case "x":
                         doolhof[i][j].setSpelObject(new Muur(false));
@@ -79,35 +73,19 @@ public class Veld extends JPanel implements ActionListener {
         }
     }
 
-//    public void findObject() {
-//        for (int i = 0; i < N; i++) {
-//            for (int j = 0; j < N; j++) {
-//              
-//                switch () {
-//                    case doolhof[i][j].setNorth(doolhof[i][j - 1]):
-//                    
-//                }
-//            }
-//        }
-//    }
-
     @Override
-    public void paintComponent(Graphics g
-    ) {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         drawItems((Graphics) g);
     }
 
     private void drawItems(Graphics gr) {
-
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if(doolhof[i][j].getMijnObject() instanceof Gras && doolhof[i][j].getPad()){
-               gr.drawImage(h.getImage(), i * 25, j * 25, 25, 25, null);
-                }
-                else{
-                 gr.drawImage(doolhof[i][j].getMijnObject().getImage(), i * 25, j * 25, 25, 25, null);
+                if (doolhof[i][j].getMijnObject() instanceof Gras && doolhof[i][j].getPad()) {
+                    gr.drawImage(h.getImage(), i * 25, j * 25, 25, 25, null);
+                } else {
+                    gr.drawImage(doolhof[i][j].getMijnObject().getImage(), i * 25, j * 25, 25, 25, null);
                 }
             }
         }
@@ -115,10 +93,6 @@ public class Veld extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-//        if (m.getMap(p.getTileX(), p.getTileY()).equals("f")) {
-//            message = "You win";
-//            win = true;
-//        }
         repaint();
     }
 }

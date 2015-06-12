@@ -18,13 +18,8 @@ public class Bazooka extends SpelObject {
         return bazookaImage;
     }
 
-    public void vernietig(Speler speler) {
-  
-    }
-
     @Override
     public void pakObject(Speler speler) {
         speler.verhoogAmmo();
     }
-
 }

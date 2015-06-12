@@ -9,15 +9,11 @@ public abstract class SpelObject {
 
     public String getFilePath(String path) {
         return new File("").getAbsolutePath() + "/src/blokd_project/" + path;
-
     }
 
     public String getImagePath(String path) {
         return new File("").getAbsolutePath() + "/src/blokd_project/Images/" + path;
-
     }
-
-    public abstract Image getImage();
 
     protected void setTile(Tegel t) {
         mijnTegel = t;
@@ -26,13 +22,8 @@ public abstract class SpelObject {
     public Tegel getTile() {
         return mijnTegel;
     }
-//    public Image getPlaatje() {
-//        return plaatje;
-//    }
 
-//    private void tekenObject() {
-//  //      this.muur.repaint();
-//    }
-    public abstract void pakObject(Speler speler) ;
+    public abstract Image getImage();
 
+    public abstract void pakObject(Speler speler);
 }

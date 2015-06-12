@@ -15,37 +15,6 @@ public class Muur extends SpelObject {
         wallImage = img.getImage();
     }
 
-//    public boolean checkWallNorth() {
-//        if (!m.getMap(p.getTileX(), p.getTileY() - 1).equals("w")) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-//
-//    public boolean checkWallSouth() {
-//        if (!m.getMap(p.getTileX(), p.getTileY() + 1).equals("w")) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-//
-//    public boolean checkWallWest() {
-//        if (!m.getMap(p.getTileX() - 1, p.getTileY()).equals("w")) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-//
-//    public boolean checkWallEast() {
-//        if (!m.getMap(p.getTileX() + 1, p.getTileY()).equals("w")) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
     @Override
     public Image getImage() {
         return wallImage;
@@ -60,8 +29,8 @@ public class Muur extends SpelObject {
     }
 
     @Override
-        public void pakObject(Speler speler) {
-            if (kanKapot == true) {
+    public void pakObject(Speler speler) {
+        if (kanKapot == true) {
             getTile().verwijderObject();
         }
     }

@@ -1,39 +1,24 @@
 package blokd_project;
 
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Scanner;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Map {
 
     private Scanner m;
+    private static int index = 0;
     private String map[] = new String[25];
-    int index = 0;
-    
-  String[] levels = {"maze.txt", "maze_1.txt", "maze_2.txt"};//new String[3];
-  
+    String[] levels = {"maze.txt", "maze_1.txt", "maze_2.txt"};
 
-  
-    public void levelSwitch()
-    {
-        index ++;
+    public static void levelSwitch() {
+        index++;
+        if (index > 2) {
+            index = 0;
+        }
     }
 
-//    public String getMaze() {
-//        return maze;
-//    }
-//
-//    public void setMaze(String maze) {
-//        this.maze = maze;
-//    }
-
-    public Map(JLabel label ) {
-
-     
+    public Map(JLabel label) {
         openFile();
         readFile();
         closeFile();
@@ -46,13 +31,12 @@ public class Map {
 
     private String getPath(String path) {
         return new File("").getAbsolutePath() + "/src/blokd_project/" + path;
-
     }
 
     public void openFile() {
         try {
-             m = new Scanner(new File(getPath("MazeData/" + levels[index])));
-             levelSwitch();
+            m = new Scanner(new File(getPath("MazeData/" + levels[index])));
+            levelSwitch();
         } catch (Exception e) {
             System.out.println("error loading map");
         }
@@ -70,15 +54,3 @@ public class Map {
         m.close();
     }
 }
-//            switch(levels){
-//                case MAZE1:
-//                   m = new Scanner(new File(getPath("MazeData/" + Levels.MAZE1)));
-//                    break;
-//                case MAZE2:
-//                   m = new Scanner(new File(getPath("MazeData/" + Levels.MAZE2)));
-//                    break;
-//                case MAZE3:
-//                   m = new Scanner(new File(getPath("MazeData/" + Levels.MAZE3)));
-//                    break;
-                    
-//            }

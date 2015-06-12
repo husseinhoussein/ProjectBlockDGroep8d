@@ -23,19 +23,15 @@ public class KeyboardListener extends KeyAdapter {
             p.beweeg(e.getKeyCode());
             laatsteRichting = e.getKeyCode();
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            
             p.vuurBazooka(laatsteRichting);
-//            System.out.println(laatsteRichting);
         }
-
-//        p.vuurBazooka(e.getKeyCode());
         this.label.setText("Aantal stappen: " + p.getSteps());
         this.label2.setText("Ammo: " + p.getAmmo());
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-//        p.vuurBazooka(e.getKeyCode());
+
     }
 
     @Override
@@ -43,30 +39,3 @@ public class KeyboardListener extends KeyAdapter {
 
     }
 }
-//        p.vuurBazooka(e.getKeyCode());
-/*        if (keycode == KeyEvent.VK_UP) {
- //  if (!tegel.getNorth().equals(veld.doolhof.equals("w"))) {
- p.beweeg(0, -1);
-                
-                
- //     }
- }
- if (keycode == KeyEvent.VK_DOWN) {
-          
- //  if (tegel.getSouth()) {
- p.beweeg(0, 1);
-          
- // }
- }
- if (keycode == KeyEvent.VK_LEFT) {
- //            if (tegel.getWest().equals(veld.doolhof.equals("w"))) {
- p.beweeg(-1, 0);
-
- //            }
- }
- if (keycode == KeyEvent.VK_RIGHT) {
- //            if (tegel.getEast().equals(veld.doolhof.equals("w"))) {
- p.beweeg(1, 0);
-
- //            }
- }*/

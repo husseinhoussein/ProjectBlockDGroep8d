@@ -13,12 +13,6 @@ public class Valsspeler extends SpelObject {
         cheaterImage = img.getImage();
     }
 
-
-
-    private void minderStappen() {
-        //vermindert aantal stappen dat de speler heeft gezet
-    }
-
     private void beweegRandom() {
         //code om de valsspeler uit zichzelf over het veld te laten bewegen
     }
@@ -31,5 +25,4 @@ public class Valsspeler extends SpelObject {
     @Override
     public void pakObject(Speler speler) {
         speler.verlaagStappen();    }
-    
 }

@@ -1,10 +1,8 @@
 package blokd_project;
 
 import java.awt.Image;
-import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 public class Vriend extends SpelObject {
 
@@ -14,10 +12,8 @@ public class Vriend extends SpelObject {
     private boolean win = false;
 
     public Vriend() {
-
         ImageIcon img = new ImageIcon(getImagePath(friendPath));
         friendImage = img.getImage();
-
         tileX = 1;
         tileY = 1;
     }
@@ -43,14 +39,9 @@ public class Vriend extends SpelObject {
     @Override
     public void pakObject(Speler speler) {
         int result = JOptionPane.showConfirmDialog(null, "Next Level??", "You win!!", JOptionPane.YES_NO_OPTION);
-//              System.out.println(result);
         if (result == 0) {
-//                m = new Map(null);
-//                m.levelSwitch();
-
             Doolhof h = new Doolhof();
             h.refreshFrame();
-//                  h.mazeStart();
         } else if (result == 1) {
             System.out.println("something");
         }

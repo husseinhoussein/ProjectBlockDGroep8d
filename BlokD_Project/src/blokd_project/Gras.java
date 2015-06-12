@@ -22,5 +22,4 @@ public class Gras extends SpelObject {
     public void pakObject(Speler speler) {
         getTile().verwijderObject();
     }
-
 }

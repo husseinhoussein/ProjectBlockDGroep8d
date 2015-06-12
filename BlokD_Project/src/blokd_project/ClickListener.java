@@ -1,9 +1,7 @@
-
 package blokd_project;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JComponent;
 
 public class ClickListener implements ActionListener { 
 

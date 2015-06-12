@@ -6,14 +6,11 @@ import javax.swing.ImageIcon;
 
 public class Speler extends SpelObject {
 
-//    private int tileX, tileY;
     private Image playerImage;
     private String playerPath = "player.png";
     private int steps;
     private int ammo;
     boolean magSchieten = false;
-    private Map m;
-    private Helper h;
 
     public Speler() {
         ImageIcon img = new ImageIcon(getImagePath(playerPath));
@@ -36,7 +33,6 @@ public class Speler extends SpelObject {
         Tegel naar = null;
         SpelObject stuk = null;
 
-        // naar.getBuur(dir);
         switch (dir) {
             case KeyEvent.VK_UP:
                 naar = getTile().getNorth();
@@ -51,8 +47,8 @@ public class Speler extends SpelObject {
                 naar = getTile().getWest();
                 break;
             default:
-
         }
+
         stuk = naar.getMijnObject();
         if (!(stuk instanceof Muur)) {
             if (stuk != null) {
@@ -63,15 +59,6 @@ public class Speler extends SpelObject {
         }
     }
 
-//        if ((stuk instanceof Muur)) {
-//            if (magSchieten == true) {
-//                stuk.pakObject(this);
-//                getTile().verplaatsObject(naar);
-//                magSchieten = false;
-//                ammo--;
-//            }
-//        }
-//}
     @Override
     public Image getImage() {
         return playerImage;
@@ -94,12 +81,10 @@ public class Speler extends SpelObject {
         SpelObject stuk = null;
 
         switch (dir) {
-
             case KeyEvent.VK_UP:
                 naar = getTile().getNorth();
                 break;
             case KeyEvent.VK_RIGHT:
-
                 naar = getTile().getEast();
                 break;
             case KeyEvent.VK_DOWN:
@@ -111,23 +96,10 @@ public class Speler extends SpelObject {
             default:
         }
 
-//        if (ammo > 0) {
-//            stuk = naar.getMijnObject();
-//            if (dir == 38) {
-//                do{
-//                        getTile().getNorth();
-//                        stuk.pakObject(this);
-//                }
-//                while (!(stuk instanceof Muur));
-//            } else {
-//                stuk.pakObject(this);
-//            }
-//        }
-//    }
         if (ammo > 0) {
             stuk = naar.getMijnObject();
-
             while (!(stuk instanceof Muur)) {
+
                 switch (dir) {
                     case KeyEvent.VK_UP:
                         naar = naar.getNorth();
@@ -151,9 +123,7 @@ public class Speler extends SpelObject {
     }
 
     @Override
-    public void pakObject(Speler speler
-    ) {
+    public void pakObject(Speler speler) {
 
     }
-
 }
