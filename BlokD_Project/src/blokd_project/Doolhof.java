@@ -84,7 +84,7 @@ public class Doolhof {
 
         panelCornerNorth.setSize(new Dimension(60, 100));
         panelCornerNorth.setSize(new Dimension(FRAME_WIDTH - 120, 100));
-        panelSouth.setPreferredSize(new Dimension(FRAME_WIDTH, 40));
+        panelSouth.setPreferredSize(new Dimension(FRAME_WIDTH, 10));
         panelWest.setPreferredSize(new Dimension(125, FRAME_HEIGHT));
         panelHints.setPreferredSize(new Dimension(FRAME_WIDTH - 160, 40));
     }
