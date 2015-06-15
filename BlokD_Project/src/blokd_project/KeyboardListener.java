@@ -6,13 +6,17 @@ import javax.swing.JLabel;
 
 public class KeyboardListener extends KeyAdapter {
 
+    private  Valsspeler c;
     private Speler p;
     private JLabel label;
     private JLabel label2;
     private int laatsteRichting = KeyEvent.VK_UP;
+    private int richtingC = KeyEvent.VK_LEFT;
+    
 
-    public KeyboardListener(Speler p, JLabel label, JLabel label2) {
+    public KeyboardListener(Speler p, JLabel label, JLabel label2, Valsspeler c) {
         this.p = p;
+        this.c = c;
         this.label = label;
         this.label2 = label2;
     }
@@ -24,6 +28,10 @@ public class KeyboardListener extends KeyAdapter {
             laatsteRichting = e.getKeyCode();
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             p.vuurBazooka(laatsteRichting);
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_J || e.getKeyCode() == KeyEvent.VK_K ){
+            richtingC = e.getKeyCode();
+            c.beweegRandom(richtingC);
         }
         this.label.setText("Aantal stappen: " + p.getSteps());
         this.label2.setText("Ammo: " + p.getAmmo());

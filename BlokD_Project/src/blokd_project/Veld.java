@@ -14,17 +14,20 @@ public class Veld extends JPanel implements ActionListener {
     private Map m;
     private Speler p;
     private Helper h;
+    private Valsspeler c;
 
     public Timer timer;
     Tegel[][] doolhof = new Tegel[N][N];
+    
 
     public Veld(JLabel label, JLabel label2) {
 
         m = new Map(null);
         p = new Speler();
+        c = new Valsspeler();
         h = new Helper();
 
-        addKeyListener(new KeyboardListener(p, label, label2));
+        addKeyListener(new KeyboardListener(p, label, label2, c));
         setFocusable(true);
         timer = new Timer(25, this);
         timer.start();
@@ -58,7 +61,7 @@ public class Veld extends JPanel implements ActionListener {
                         doolhof[i][j].setSpelObject(new Bazooka());
                         break;
                     case "c":
-                        doolhof[i][j].setSpelObject(new Valsspeler());
+                        doolhof[i][j].setSpelObject(c);
                         break;
                 }
             }
