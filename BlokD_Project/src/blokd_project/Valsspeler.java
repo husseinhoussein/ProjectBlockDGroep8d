@@ -10,6 +10,7 @@ import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class Valsspeler extends SpelObject {
 
@@ -47,45 +48,59 @@ public class Valsspeler extends SpelObject {
         stuk = naar.getMijnObject();
         if (!(stuk instanceof Muur)) {
             if (stuk != null) {
-               getTile().verplaatsObject(naar);
+                getTile().verplaatsObject(naar);
             }
         }
     }
 
     public void randomDir() {
-
+        Tegel naar = null;
+        SpelObject stuk = null;
         int rDir = 0;
         Random random = new Random();
-        try { 
-        Robot robot = new Robot();
-        for (int i = 0; i <= 7; i++) {
-            
-            int randomInt = random.nextInt(4);
+        try {
+            Robot robot = new Robot();
 
-            if (randomInt == 0) {
-                robot.keyPress(KeyEvent.VK_J);
-                if()
+            for (int i = 0; i <= 15; i++) {
+                int randomInt = random.nextInt(4);
+
+                if (randomInt == 0) {
+                    if (!(stuk instanceof Muur)) {
+//                        naar = getTile().getWest();
+                        robot.keyPress(KeyEvent.VK_I);
+
+                    } else {
+                        robot.keyPress(KeyEvent.VK_K);
+                    }
+
+                }
+                if (randomInt == 1) {
+                    if (!(stuk instanceof Muur)) {
+                        robot.keyPress(KeyEvent.VK_J);
+                    } else {
+                        robot.keyPress(KeyEvent.VK_L);
+                    }
+                }
+                if (randomInt == 2) {
+                    if (!(stuk instanceof Muur)) {
+                        robot.keyPress(KeyEvent.VK_K);
+                    } else {
+                        robot.keyPress(KeyEvent.VK_I);
+                    }
+
+                }
+                if (randomInt == 3) {
+                    if (!(stuk instanceof Muur)) {
+                        robot.keyPress(KeyEvent.VK_L);
+                    } else {
+                        robot.keyPress(KeyEvent.VK_J);
+                    }
+                }
             }
-            else if(randomInt == 1){
-                robot.keyPress(KeyEvent.VK_L);
-            }
-            else if(randomInt == 2){
-                robot.keyPress(KeyEvent.VK_I);
-            }
-            else if(randomInt == 3){
-                robot.keyPress(KeyEvent.VK_K);
-            }
+
+        } catch (AWTException e) {
+            e.printStackTrace();
         }
-        
-        
-        } catch (AWTException e) { 
-e.printStackTrace(); 
-} 
-//
-//        if (KeyEvent.VK_LEFT == KeyEvent.VK_LEFT) {
-//            rDir = 37;
-//        }
-//        System.out.println(rDir);
 
         timer.schedule(new TimerTask() {
 

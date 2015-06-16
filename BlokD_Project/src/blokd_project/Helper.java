@@ -9,9 +9,9 @@ import javax.swing.ImageIcon;
 public class Helper extends SpelObject {
 
     private Image helperImage;
-//    private Image helperPuntjes;
+    private Image puntjesImage;
     private String helperPath = "helper.png";
-// private String helperPuntjesPath = "puntje";
+    private String puntjesPath = "puntje.png";
     private int padLengte = Integer.MAX_VALUE;
     private Timer timer = new Timer();
     ArrayList<Tegel> pad = new ArrayList<>();
@@ -20,7 +20,13 @@ public class Helper extends SpelObject {
     public Helper() {
         ImageIcon img = new ImageIcon(getImagePath(helperPath));
         helperImage = img.getImage();
+        ImageIcon img2 = new ImageIcon(getImagePath(puntjesPath));
+        puntjesImage = img2.getImage();
 
+    }
+
+    public Image getPuntjesImage() {
+        return puntjesImage;
     }
 
     protected void kortsteRoute(Tegel tegel, ArrayList<Tegel> pad) {

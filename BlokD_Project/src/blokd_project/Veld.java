@@ -73,17 +73,6 @@ public class Veld extends JPanel implements ActionListener {
         }
     }
 
-//    public void findObject() {
-//        for (int i = 0; i < N; i++) {
-//            for (int j = 0; j < N; j++) {
-//              
-//                switch () {
-//                    case doolhof[i][j].setNorth(doolhof[i][j - 1]):
-//                    
-//                }
-//            }
-//        }
-//    }
     @Override
     public void paintComponent(Graphics g
     ) {
@@ -97,7 +86,7 @@ public class Veld extends JPanel implements ActionListener {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (doolhof[i][j].getMijnObject() instanceof Gras && doolhof[i][j].getPad()) {
-                    gr.drawImage(h.getImage(), i * 25, j * 25, 25, 25, null);
+                    gr.drawImage(h.getPuntjesImage(), i * 25, j * 25, 25, 25, null);
                 } else {
                     gr.drawImage(doolhof[i][j].getMijnObject().getImage(), i * 25, j * 25, 25, 25, null);
                 }

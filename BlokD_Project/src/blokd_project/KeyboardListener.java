@@ -29,7 +29,7 @@ public class KeyboardListener extends KeyAdapter {
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             p.vuurBazooka(laatsteRichting);
         }
-        else if(e.getKeyCode() == KeyEvent.VK_J || e.getKeyCode() == KeyEvent.VK_K ){
+        else if(e.getKeyCode() == KeyEvent.VK_J || e.getKeyCode() == KeyEvent.VK_K ||e.getKeyCode() == KeyEvent.VK_I || e.getKeyCode() == KeyEvent.VK_L){
             richtingC = e.getKeyCode();
             c.beweegRandom(richtingC);
         }
