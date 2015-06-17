@@ -30,12 +30,12 @@ public class Helper extends SpelObject {
     }
 
     protected void kortsteRoute(Tegel tegel, ArrayList<Tegel> pad) {
-        if (!(tegel.getMijnObject() instanceof Muur) && !(pad.contains(tegel))) {
+        if (!(tegel.getMijnObject() instanceof Muur) && !(pad.contains(tegel)) && pad.size() < padLengte) {
             pad.add(tegel);
             if (tegel.getMijnObject() instanceof Vriend) {
                 if (pad.size() < padLengte) {
-                    kortstePad = (ArrayList<Tegel>) pad.clone();
-                    padLengte = pad.size();
+                        kortstePad = (ArrayList<Tegel>) pad.clone();
+                        padLengte = pad.size();
                 }
             } else {
                 kortsteRoute(tegel.getNorth(), pad);

@@ -41,7 +41,6 @@ public class Vriend extends SpelObject {
         int result = JOptionPane.showConfirmDialog(null, "Next Level??", "You win!!", JOptionPane.YES_NO_OPTION);
         Doolhof h = new Doolhof();
         if (result == 0) {
-            
             h.refreshFrame();
         } else if (result == 1) {
             h.exitGame();
