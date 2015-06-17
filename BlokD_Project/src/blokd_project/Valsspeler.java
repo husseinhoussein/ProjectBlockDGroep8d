@@ -65,7 +65,7 @@ public class Valsspeler extends SpelObject {
                 int randomInt = random.nextInt(4);
 
                 if (randomInt == 0) {
-                    if (!(stuk instanceof Muur)) {
+                    if (stuk instanceof Gras) {
 //                        naar = getTile().getWest();
                         robot.keyPress(KeyEvent.VK_I);
 
@@ -75,14 +75,14 @@ public class Valsspeler extends SpelObject {
 
                 }
                 if (randomInt == 1) {
-                    if (!(stuk instanceof Muur)) {
+                    if (stuk instanceof Gras)  {
                         robot.keyPress(KeyEvent.VK_J);
                     } else {
                         robot.keyPress(KeyEvent.VK_L);
                     }
                 }
                 if (randomInt == 2) {
-                    if (!(stuk instanceof Muur)) {
+                    if (stuk instanceof Gras)  {
                         robot.keyPress(KeyEvent.VK_K);
                     } else {
                         robot.keyPress(KeyEvent.VK_I);
@@ -90,7 +90,7 @@ public class Valsspeler extends SpelObject {
 
                 }
                 if (randomInt == 3) {
-                    if (!(stuk instanceof Muur)) {
+                    if (stuk instanceof Gras)  {
                         robot.keyPress(KeyEvent.VK_L);
                     } else {
                         robot.keyPress(KeyEvent.VK_J);

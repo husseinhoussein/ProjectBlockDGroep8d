@@ -54,7 +54,7 @@ public class Helper extends SpelObject {
 
     @Override
     public void pakObject(Speler speler) {
-        kortsteRoute(speler.getTile(), new ArrayList<Tegel>());
+        kortsteRoute(this.getTile(), new ArrayList<Tegel>());
         for (final Tegel tegel : kortstePad) {
             tegel.setPad();
             timer.schedule(new TimerTask() {
