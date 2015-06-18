@@ -93,11 +93,7 @@ public class Doolhof {
         createDoolhof();
     }
 
-    protected void mazeStart() {
-        new Doolhof();
-    }
-
-    void exitGame() {
+    protected void exitGame() {
         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
     }
 }

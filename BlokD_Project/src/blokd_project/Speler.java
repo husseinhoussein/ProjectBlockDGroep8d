@@ -10,7 +10,6 @@ public class Speler extends SpelObject {
     private String playerPath = "player.png";
     private int steps;
     private int ammo;
-    boolean magSchieten = false;
 
     public Speler() {
         ImageIcon img = new ImageIcon(getImagePath(playerPath));

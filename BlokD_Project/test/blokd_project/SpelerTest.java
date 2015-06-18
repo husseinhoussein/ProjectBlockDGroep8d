@@ -5,9 +5,6 @@
  */
 package blokd_project;
 
-import java.awt.AWTException;
-import java.awt.Image;
-import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -125,36 +122,25 @@ public class SpelerTest {
         assertEquals(midden, speler.getTile());
         assertTrue(rechts.getMijnObject() instanceof Muur);
     }
+    @Test
     public void testRoutine5() {
         Tegel een = new Tegel(1, 1);
         Tegel twee = new Tegel(2, 1);
-        Tegel drie = new Tegel(2, 1);
-        Tegel vier = new Tegel(2, 2);
-        
+
         Speler speler = new Speler();
-        Vriend vriend = new Vriend();
-        Helper helper = new Helper();
-        Muur muur = new Muur(true);
+        Bazooka bazooka = new Bazooka();
 
         een.setEast(twee);
         twee.setWest(een);
-        een.setSouth(drie);
-        twee.setSouth(vier);
-        drie.setNorth(een);
-        vier.setNorth(twee);
-        drie.setEast(vier);
-        vier.setWest(drie);
-       
+
         een.setMijnObject(speler);
-        twee.setMijnObject(helper);
-        drie.setMijnObject(vriend);
-        vier.setMijnObject(muur);
+        twee.setMijnObject(bazooka);
 
         speler.beweeg(KeyEvent.VK_RIGHT);
-        speler.vuurBazooka(KeyEvent.VK_RIGHT);
 
-        assertEquals(een, speler.getTile());
-        assertEquals(twee, muur.getTile());
+        assertTrue(een.getMijnObject() instanceof Gras);
+        assertTrue(twee.getMijnObject() instanceof Speler);
+        assertTrue(speler.getAmmo() > 0);
     }
     
 }

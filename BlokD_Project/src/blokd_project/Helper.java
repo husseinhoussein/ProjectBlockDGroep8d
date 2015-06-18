@@ -65,4 +65,8 @@ public class Helper extends SpelObject {
             }, 10000);
         }
     }
+
+    public ArrayList<Tegel> getKortstePad() {
+        return kortstePad;
+    }
 }

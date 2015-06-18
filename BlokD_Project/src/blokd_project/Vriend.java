@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 
 public class Vriend extends SpelObject {
 
-    private int tileX, tileY;
     private Image friendImage;
     private String friendPath = "friend.png";
     private boolean win = false;
@@ -14,21 +13,6 @@ public class Vriend extends SpelObject {
     public Vriend() {
         ImageIcon img = new ImageIcon(getImagePath(friendPath));
         friendImage = img.getImage();
-        tileX = 1;
-        tileY = 1;
-    }
-
-    public int getTileX() {
-        return tileX;
-    }
-
-    public int getTileY() {
-        return tileY;
-    }
-
-    public void beweeg(int dx, int dy) {
-        tileX += dx;
-        tileY += dy;
     }
 
     @Override
