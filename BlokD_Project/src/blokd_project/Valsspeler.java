@@ -7,10 +7,7 @@ import java.awt.event.KeyEvent;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 public class Valsspeler extends SpelObject {
 
@@ -47,7 +44,7 @@ public class Valsspeler extends SpelObject {
 
         stuk = naar.getMijnObject();
         if (!(stuk instanceof Muur)) {
-            if (stuk != null) {
+            if (stuk instanceof Gras) {
                 getTile().verplaatsObject(naar);
             }
         }
